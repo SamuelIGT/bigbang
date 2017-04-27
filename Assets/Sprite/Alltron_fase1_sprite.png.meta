@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: e12051b421afafd49a57af5b2ee5def7
+timeCreated: 1492984879
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Alltron_fase1_sprite_0
+    21300002: Alltron_fase1_sprite_1
+    21300004: Alltron_fase1_sprite_2
+    21300006: Alltron_fase1_sprite_3
+    21300008: Alltron_fase1_sprite_4
+    21300010: Alltron_fase1_sprite_5
+    21300012: Alltron_fase1_sprite_6
+    21300014: Alltron_fase1_sprite_7
+    21300016: Alltron_fase1_sprite_8
+    21300018: Alltron_fase1_sprite_9
+    21300020: Alltron_fase1_sprite_10
+    21300022: Alltron_fase1_sprite_11
+    21300024: Alltron_fase1_sprite_12
+    21300026: Alltron_fase1_sprite_13
+    21300028: Alltron_fase1_sprite_14
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1914
+        width: 454
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 1957
+        width: 330
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1439
+        width: 220
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1424
+        width: 191
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 1453
+        width: 246
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1058
+        width: 202
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1078
+        width: 189
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 1026
+        width: 195
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 1025
+        width: 206
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 521
+        width: 202
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 449
+        width: 140
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 441
+        width: 133
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 213
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 45
+        width: 247
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Alltron_fase1_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 12
+        width: 229
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
