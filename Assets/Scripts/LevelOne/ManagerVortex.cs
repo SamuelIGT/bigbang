@@ -26,10 +26,9 @@ public class ManagerVortex : MonoBehaviour {
 		
 	public void carregarAla(int idAla){
 		if (idAla == 1) {
-			player.transform.position = new Vector3 (-80.0f, -85.5f, 0.0f);
 			//inicializa informacoes do vortex 1
 			objetosVortex [0] = Instantiate(vortexPrefab) as GameObject;
-			objetosVortex [0].GetComponent<Vortex> ().setPosicao (new Vector3 (79.5f, -77.0f, 3.5f));
+			objetosVortex [0].GetComponent<Vortex> ().setPosicao (new Vector3 (130.0f, -40.0f, 10.0f));
 			objetosVortex [0].GetComponent<MeshRenderer> ().material.mainTexture = vortexAzul;
 			objetosVortex [0].GetComponent<Vortex> ().setCor ("azul");
 			objetosVortex [0].GetComponent<Vortex> ().setTipo ("interno");

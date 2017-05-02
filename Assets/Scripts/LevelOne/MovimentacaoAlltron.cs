@@ -8,6 +8,9 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	private Animator animator;
 	private GameObject cabeca;
 	private ManagerVortex manager;
+	private float limiteDireita;
+	private float limiteEsquerda;
+	private float velocidade;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +18,9 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		andando = false;
 		animator = GetComponent<Animator> ();
 		cabeca = GameObject.Find ("Alltron_fase1_sprite_0");
+		limiteDireita = 130;
+		limiteEsquerda = -140;
+		velocidade = 0.6f;
 	}
 	
 	// Update is called once per frame
@@ -32,18 +38,18 @@ public class MovimentacaoAlltron : MonoBehaviour {
 			cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
 			this.gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
 	
-			if (posicaoAtual.x <= 80) {
+			if (posicaoAtual.x <= limiteDireita) {
 				andando = true;
-				this.gameObject.transform.Translate (new Vector3 (0.5f, 0, 0));
+				this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
 			}
 		} else if (Input.GetKey (KeyCode.LeftArrow)) {
 			Vector3 posicaoCabeca = cabeca.transform.position;
 			cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
 			this.gameObject.transform.rotation = new Quaternion (0, -180, 0, 0);
 
-			if (posicaoAtual.x >= -80) {
+			if (posicaoAtual.x >= limiteEsquerda) {
 				andando = true;
-				this.gameObject.transform.Translate (new Vector3 (0.5f, 0, 0));
+				this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
 			}
 		} else {
 			andando = false;
