@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovimentacaoAlltron : MonoBehaviour {
 
 	private bool andando;
+	private bool escondido;
 	private Animator animator;
 	private GameObject cabeca;
 	private ManagerVortex manager;
@@ -16,11 +17,12 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	void Start () {
 		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerVortex> ();
 		andando = false;
+		escondido = false;
 		animator = GetComponent<Animator> ();
 		cabeca = GameObject.Find ("Alltron_fase1_sprite_0");
-		limiteDireita = 130;
-		limiteEsquerda = -140;
-		velocidade = 0.6f;
+		limiteDireita = 260;
+		limiteEsquerda = -260;
+		velocidade = 1.0f;
 	}
 	
 	// Update is called once per frame
@@ -59,11 +61,37 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D col){
 		if (col.gameObject.tag == "Vortex") {
 			if (Input.GetKeyUp (KeyCode.Space)) {
-				Vector3 posicaoTeletransporte = this.manager.teletransportarVortex (col.gameObject);
-				this.gameObject.transform.position = new Vector3 (posicaoTeletransporte.x, posicaoTeletransporte.y - 8.5f, 
-					this.gameObject.transform.position.z);
+				if (!escondido) {
+					Vector3 posicaoTeletransporte = this.manager.teletransportarVortex (col.gameObject);
+					this.gameObject.transform.position = new Vector3 (posicaoTeletransporte.x, posicaoTeletransporte.y - 8.5f, 
+						this.gameObject.transform.position.z);
+				}
+			}
+		}
+		if (col.gameObject.tag == "Porta") {
+			if (Input.GetKeyUp (KeyCode.Space)) {
+				if (escondido) {
+					sairPorta ();
+				} else {
+					entrarPorta ();
+				}
 			}
 		}
 	}
 
+	void entrarPorta(){
+		if (!escondido) {
+			Vector3 posicaoAtual = this.gameObject.transform.position;
+			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 50.0f);
+			escondido = true;
+		}
+	}
+
+	void sairPorta(){
+		if (escondido) {
+			Vector3 posicaoAtual = this.gameObject.transform.position;
+			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 10.0f);
+			escondido = false;
+		}
+	}
 }

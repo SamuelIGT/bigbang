@@ -3,17 +3,20 @@ using System.Collections;
 
 public class MinionStealthScript : MonoBehaviour {
 
-	public float limiteDireito = 4.5f;
-	public float limiteEsquerdo = -12f;
-	public float alturaPrimeiroAndar = -9.5f;
-	public float alturaSegundoAndar = -3.0f;
-	public float alturaTerceiroAndar = 2.4f;
-	public float posiçãoEmZ = 10.4f;
-	float direcaoEVelocidade = 0.05f;//positivo para direita e negativo para esquerda
+	public float limiteDireito = -260.0f;
+	public float limiteEsquerdo = 260.0f;
+	public float alturaPrimeiroAndar = -45.5f;
+	public float alturaSegundoAndar = 150.0f;
+	public float alturaTerceiroAndar = 350.0f;
+	public float alturaQuartoAndar = 550.0f;
+	public float alturaQuintoAndar = 750.0f;
+	public float alturaSextoAndar = 950.0f;
+	public float posiçãoEmZ = 10.0f;
+	float direcaoEVelocidade = 0.1f;//positivo para direita e negativo para esquerda
 
 
 	void Start () {
-		int andar = Random.Range (1, 3);
+		int andar = Random.Range (1, 7);
 		switch (andar) {
 		case 2:
 			this.gameObject.transform.position = new Vector3 (Random.Range (limiteEsquerdo, limiteDireito), alturaSegundoAndar, posiçãoEmZ);

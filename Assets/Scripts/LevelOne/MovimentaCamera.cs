@@ -4,9 +4,9 @@ using System.Collections;
 public class MovimentaCamera : MonoBehaviour {
 
 	float deslocamento;
-	public float velocidade = 2.0f;
-	public Vector3 posicaoAlta = new Vector3(0.0f,4.0f,-10.0f);
-	public Vector3 posicaoBaixa = new Vector3(0.0f,1.0f,-10.0f);
+	public float velocidade;
+	//public Vector3 posicaoAlta;
+	//public Vector3 posicaoBaixa;
 	bool subindo = false;
 	bool descendo = false;
 	GameObject mainCamera;
@@ -22,7 +22,6 @@ public class MovimentaCamera : MonoBehaviour {
 			this.subindo = true;
 
 		} else if (Input.GetKeyDown (KeyCode.S) && !subindo && !descendo) {
-			this.DesceCamera ();
 			this.descendo = true;
 		}
 		if (subindo) {
@@ -35,16 +34,16 @@ public class MovimentaCamera : MonoBehaviour {
 
 
 	public void SobeCamera() {
-		mainCamera.transform.position = Vector3.MoveTowards (mainCamera.transform.position, posicaoAlta, deslocamento);
-		if (mainCamera.transform.position.Equals (this.posicaoAlta)) {
-			this.subindo = false;
-		}
+//		mainCamera.transform.position = Vector3.MoveTowards (mainCamera.transform.position, posicaoAlta, deslocamento);
+//		if (mainCamera.transform.position.Equals (this.posicaoAlta)) {
+//			this.subindo = false;
+//		}
 	}
 
 	public void DesceCamera() {
-		mainCamera.transform.position = Vector3.MoveTowards (mainCamera.transform.position, posicaoBaixa, deslocamento);
-		if (mainCamera.transform.position.Equals (this.posicaoBaixa)) {
-			this.descendo = false;
-		}
+//		mainCamera.transform.position = Vector3.MoveTowards (mainCamera.transform.position, posicaoBaixa, deslocamento);
+//		if (mainCamera.transform.position.Equals (this.posicaoBaixa)) {
+//			this.descendo = false;
+//		}
 	}
 }
