@@ -34,8 +34,7 @@ public class Vortex : MonoBehaviour {
 	}
 
 	void Start(){
-//		this.id = Vortex.idVortex;
-//		Vortex.idVortex++;
+
 	}
 
 	void Update(){

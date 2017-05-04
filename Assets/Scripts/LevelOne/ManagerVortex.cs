@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ManagerVortex : MonoBehaviour {
 
-	private const int size = 14;
+	private const int size = 10;
 	private GameObject[] objetosVortex;
 	public GameObject vortexPrefab;
 	public Texture [] texturas = new Texture[3];
@@ -13,7 +13,7 @@ public class ManagerVortex : MonoBehaviour {
 	// Use this for initialization
 
 	void Start () {
-		objetosVortex = new GameObject[10];
+		objetosVortex = new GameObject[size];
 		cores = new string[3];
 		cores[0] = "azul";
 		cores[1] = "verde";

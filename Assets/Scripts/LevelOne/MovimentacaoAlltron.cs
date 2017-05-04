@@ -8,7 +8,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	private bool andando;
 	private bool escondido;
 	private Animator animator;
-	private GameObject cabeca;
 	private ManagerVortex manager;
 	private float limiteDireita;
 	private float limiteEsquerda;
@@ -22,7 +21,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		andando = false;
 		escondido = false;
 		animator = spritePlayer.GetComponent<Animator> ();
-		//cabeca = GameObject.Find ("Alltron_fase1_sprite_0");
 		limiteDireita = 260;
 		limiteEsquerda = -260;
 		velocidade = 1.0f;
@@ -40,8 +38,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 
 		if (escondido == false) {
 			if (Input.GetKey(KeyCode.RightArrow)) {
-				//Vector3 posicaoCabeca = cabeca.transform.position;
-				//cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
 				this.gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
 
 				if (posicaoAtual.x <= limiteDireita) {
@@ -49,8 +45,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 					this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
 				}
 			} else if (Input.GetKey (KeyCode.LeftArrow)) {
-				//Vector3 posicaoCabeca = cabeca.transform.position;
-				//cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
 				this.gameObject.transform.rotation = new Quaternion (0, -180, 0, 0);
 
 				if (posicaoAtual.x >= limiteEsquerda) {
@@ -61,12 +55,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 				andando = false;
 			}
 		}
-		//seta as cores do backgroud
-		//seta end fase
-	//	if(contAlavanca == 3){
-	//		Debug.Log ("Voce passou de fase");
-	//	}
-
 	}
 
 	void OnTriggerStay(Collider col){
@@ -94,7 +82,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		if (col.gameObject.tag == "Alavanca") {
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				manager.carregarVortex (col.gameObject.GetComponent<Alavanca>().id);
-				Debug.Log ("aciono");	
 			}
 		}
 	}
@@ -103,9 +90,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		if (!escondido) {
 			Vector3 posicaoAtual = this.gameObject.transform.position;
 			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 34.0f);
-			//GetComponent<BoxCollider2D> ().enabled = false;
 			escondido = true;
-		//	Debug.Log ("entrando");	
 		}
 	}
 
@@ -113,10 +98,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		if (escondido) {
 			Vector3 posicaoAtual = this.gameObject.transform.position;
 			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 20.0f);
-			//GetComponent<BoxCollider2D> ().enabled = true;
 			escondido = false;
-			//Debug.Log ("saindo");	
-
 		}
 	}
 }
