@@ -3,15 +3,15 @@ using System.Collections;
 
 public class MinionStealthScript : MonoBehaviour {
 
-	public float limiteDireito = -260.0f;
+	/*public float limiteDireito = -260.0f;
 	public float limiteEsquerdo = 260.0f;
-	public float alturaPrimeiroAndar = -45.5f;
+	public float alturaPrimeiroAndar = -35.0f;
 	public float alturaSegundoAndar = 150.0f;
 	public float alturaTerceiroAndar = 350.0f;
 	public float alturaQuartoAndar = 550.0f;
 	public float alturaQuintoAndar = 750.0f;
 	public float alturaSextoAndar = 950.0f;
-	public float posiçãoEmZ = 10.0f;
+	public float posiçãoEmZ = 20.0f;
 	float direcaoEVelocidade = 0.1f;//positivo para direita e negativo para esquerda
 
 
@@ -44,5 +44,62 @@ public class MinionStealthScript : MonoBehaviour {
 			}
 		}
 
+	}*/
+
+	public float velocidade = 2.0f;
+	public bool direcao;
+	private float duracaoDirecao = 3.0f;
+	private float limiteDireita = 260;
+	private float limiteEsquerda = -260;
+	private float tempoNaDirecao;
+
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+		if (direcao) {
+			transform.eulerAngles = new Vector2(0, 0);
+		} else {
+			transform.eulerAngles = new Vector2(0, 180);
+		}
+		transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+
+
+		//tempoNaDirecao += Time.deltaTime;
+
+//		if (tempoNaDirecao >= duracaoDirecao) {
+//			tempoNaDirecao = 0;
+//			direcao = !direcao;
+//			Debug.Log ("entro no tempo");
+//		}
+
+		// chance de mudar de direcao
+		//if (Random.Range (0, 10000) <= 2) {
+		//	Debug.Log ("entro na probabilidade");
+		//	direcao = !direcao;
+		//}
+
+		Vector3 posicaoAtual = transform.position;
+
+		if (posicaoAtual.x >= limiteDireita || posicaoAtual.x <= limiteEsquerda ) {
+			//Debug.Log ("entro no limite");
+			direcao = !direcao;
+		}
+	}
+
+	void OnCollisionEnter(Collision colisor) {
+		if (colisor.gameObject.tag == "Player") {
+			Debug.Log ("colide");
+			var player = colisor.gameObject;
+			//Destroy (player);
+			Application.LoadLevel("EndGameScene");
+			Debug.Log ("destroi");
+
+		}
 	}
 }

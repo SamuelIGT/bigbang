@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimentacaoAlltron : MonoBehaviour {
 
@@ -12,14 +13,16 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	private float limiteDireita;
 	private float limiteEsquerda;
 	private float velocidade;
+	public Transform spritePlayer;
+	public int contAlavancas;
 
 	// Use this for initialization
 	void Start () {
 		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerVortex> ();
 		andando = false;
 		escondido = false;
-		animator = GetComponent<Animator> ();
-		cabeca = GameObject.Find ("Alltron_fase1_sprite_0");
+		animator = spritePlayer.GetComponent<Animator> ();
+		//cabeca = GameObject.Find ("Alltron_fase1_sprite_0");
 		limiteDireita = 260;
 		limiteEsquerda = -260;
 		velocidade = 1.0f;
@@ -35,36 +38,47 @@ public class MovimentacaoAlltron : MonoBehaviour {
 			animator.SetBool ("andando", false);
 		}
 
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			Vector3 posicaoCabeca = cabeca.transform.position;
-			cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
-			this.gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
-	
-			if (posicaoAtual.x <= limiteDireita) {
-				andando = true;
-				this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
-			}
-		} else if (Input.GetKey (KeyCode.LeftArrow)) {
-			Vector3 posicaoCabeca = cabeca.transform.position;
-			cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
-			this.gameObject.transform.rotation = new Quaternion (0, -180, 0, 0);
+		if (escondido == false) {
+			if (Input.GetKey(KeyCode.RightArrow)) {
+				//Vector3 posicaoCabeca = cabeca.transform.position;
+				//cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
+				this.gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
 
-			if (posicaoAtual.x >= limiteEsquerda) {
-				andando = true;
-				this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
+				if (posicaoAtual.x <= limiteDireita) {
+					andando = true;
+					this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
+				}
+			} else if (Input.GetKey (KeyCode.LeftArrow)) {
+				//Vector3 posicaoCabeca = cabeca.transform.position;
+				//cabeca.transform.position = new Vector3(posicaoCabeca.x, posicaoCabeca.y, -1);
+				this.gameObject.transform.rotation = new Quaternion (0, -180, 0, 0);
+
+				if (posicaoAtual.x >= limiteEsquerda) {
+					andando = true;
+					this.gameObject.transform.Translate (new Vector3 (velocidade, 0, 0));
+				}
+			} else {
+				andando = false;
 			}
-		} else {
-			andando = false;
 		}
+		//seta as cores do backgroud
+		//seta end fase
+	//	if(contAlavanca == 3){
+	//		Debug.Log ("Voce passou de fase");
+	//	}
+
 	}
+
+	void OnTriggerStay(Collider col){
 		
-	void OnTriggerStay2D(Collider2D col){
 		if (col.gameObject.tag == "Vortex") {
 			if (Input.GetKeyUp (KeyCode.Space)) {
-				if (!escondido) {
+				if (col.gameObject.GetComponent<Vortex> ().getId () == 4) {
+					SceneManager.LoadScene ("WinGameScene");
+				} else {
 					Vector3 posicaoTeletransporte = this.manager.teletransportarVortex (col.gameObject);
 					this.gameObject.transform.position = new Vector3 (posicaoTeletransporte.x, posicaoTeletransporte.y - 8.5f, 
-						this.gameObject.transform.position.z);
+						this.gameObject.transform.position.z);	
 				}
 			}
 		}
@@ -77,21 +91,32 @@ public class MovimentacaoAlltron : MonoBehaviour {
 				}
 			}
 		}
+		if (col.gameObject.tag == "Alavanca") {
+			if (Input.GetKeyUp (KeyCode.Space)) {
+				manager.carregarVortex (col.gameObject.GetComponent<Alavanca>().id);
+				Debug.Log ("aciono");	
+			}
+		}
 	}
 
 	void entrarPorta(){
 		if (!escondido) {
 			Vector3 posicaoAtual = this.gameObject.transform.position;
-			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 50.0f);
+			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 34.0f);
+			//GetComponent<BoxCollider2D> ().enabled = false;
 			escondido = true;
+		//	Debug.Log ("entrando");	
 		}
 	}
 
 	void sairPorta(){
 		if (escondido) {
 			Vector3 posicaoAtual = this.gameObject.transform.position;
-			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 10.0f);
+			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 20.0f);
+			//GetComponent<BoxCollider2D> ().enabled = true;
 			escondido = false;
+			//Debug.Log ("saindo");	
+
 		}
 	}
 }
