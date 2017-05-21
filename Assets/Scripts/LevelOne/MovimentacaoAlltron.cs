@@ -19,7 +19,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	void Start () {
 		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerVortex> ();
 		andando = false;
-		escondido = false;
+		escondido = true;
 		animator = spritePlayer.GetComponent<Animator> ();
 		limiteDireita = 260;
 		limiteEsquerda = -260;
@@ -100,5 +100,9 @@ public class MovimentacaoAlltron : MonoBehaviour {
 			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 20.0f);
 			escondido = false;
 		}
+	}
+
+	public void setEscondido(bool estado){
+		this.escondido = estado;
 	}
 }
