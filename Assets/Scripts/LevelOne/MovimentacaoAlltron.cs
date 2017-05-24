@@ -8,16 +8,15 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	private bool andando;
 	private bool escondido;
 	private Animator animator;
-	private ManagerVortex manager;
+	private ManagerAla manager;
 	private float limiteDireita;
 	private float limiteEsquerda;
 	private float velocidade;
 	public Transform spritePlayer;
-	public int contAlavancas;
 
 	// Use this for initialization
 	void Start () {
-		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerVortex> ();
+		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerAla> ();
 		andando = false;
 		escondido = true;
 		animator = spritePlayer.GetComponent<Animator> ();
@@ -61,6 +60,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		
 		if (col.gameObject.tag == "Vortex") {
 			if (Input.GetKeyUp (KeyCode.Space)) {
+				
 				if (col.gameObject.GetComponent<Vortex> ().getId () == 4) {
 					SceneManager.LoadScene ("WinGameScene");
 				} else {
@@ -68,6 +68,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 					this.gameObject.transform.position = new Vector3 (posicaoTeletransporte.x, posicaoTeletransporte.y - 8.5f, 
 						this.gameObject.transform.position.z);	
 				}
+
 			}
 		}
 		if (col.gameObject.tag == "Porta") {
@@ -77,11 +78,6 @@ public class MovimentacaoAlltron : MonoBehaviour {
 				} else {
 					entrarPorta ();
 				}
-			}
-		}
-		if (col.gameObject.tag == "Alavanca") {
-			if (Input.GetKeyUp (KeyCode.Space)) {
-				manager.carregarVortex (col.gameObject.GetComponent<Alavanca>().id);
 			}
 		}
 	}

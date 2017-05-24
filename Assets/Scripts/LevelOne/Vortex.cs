@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine; 
 
 public class Vortex : MonoBehaviour {
-
-	private string cor;
-	private string tipo;
 	private int id;
+	private string cor;
+
+	void Start(){
+
+	}
+
+	void Update(){
+
+	}
 
 	public Vector3 getPosicao(){
 		return this.gameObject.transform.position;
@@ -20,11 +26,11 @@ public class Vortex : MonoBehaviour {
 	public void setCor(string cor){
 		this.cor = cor;
 	}
-	public string getTipo(){
-		return this.tipo;
+	public Texture getTextura(){
+		return this.gameObject.GetComponent<MeshRenderer> ().material.mainTexture;
 	}
-	public void setTipo(string tipo){
-		this.tipo = tipo;
+	public void setTextura(Texture textura){
+		this.gameObject.GetComponent<MeshRenderer> ().material.mainTexture = textura;
 	}
 	public int getId(){
 		return this.id;
@@ -33,11 +39,5 @@ public class Vortex : MonoBehaviour {
 		this.id = id;
 	}
 
-	void Start(){
 
-	}
-
-	void Update(){
-	
-	}
 }
