@@ -88,9 +88,8 @@ public class ManagerBackground : MonoBehaviour {
 	}
 
 //	public void alterarCorAlavanca(int idAlavanca){
-//		
 //		for (int i = 0; i < alavancas.Length; i++) {
-//			alavancas [i].GetComponent<Animator> (
+//			alavancas [i].GetComponent<Animatio> (
 //		}
 //	}
 
@@ -101,6 +100,14 @@ public class ManagerBackground : MonoBehaviour {
 	public void atualizarTextosUI(){
 		this.modal.temperatura.text = "Temperatura: " + temperaturaAtual + "º";
 		this.modal.alavancas.text = "Alavancas: " + alavancasAtivadas + "/" + quantAlas;
+	}
+
+	public double getTemperaturaAtual(){
+		return this.temperaturaAtual;
+	}
+
+	public int getAlavancasAtivadas(){
+		return this.alavancasAtivadas;
 	}
 
 }
