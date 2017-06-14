@@ -18,10 +18,10 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	void Start () {
 		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerAla> ();
 		andando = false;
-		escondido = true;
+		escondido = false;
 		animator = spritePlayer.GetComponent<Animator> ();
 		limiteDireita = 260;
-		limiteEsquerda = -260;
+		limiteEsquerda = -310;
 		velocidade = 1.0f;
 	}
 	
@@ -36,7 +36,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		}
 
 		if (escondido == false) {
-			if (Input.GetKey(KeyCode.RightArrow)) {
+			if (Input.GetKey (KeyCode.RightArrow)) {
 				this.gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
 
 				if (posicaoAtual.x <= limiteDireita) {
@@ -53,6 +53,8 @@ public class MovimentacaoAlltron : MonoBehaviour {
 			} else {
 				andando = false;
 			}
+		} else {
+			animator.SetBool ("andando", false);
 		}
 	}
 
@@ -61,7 +63,7 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		if (col.gameObject.tag == "Vortex") {
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				
-				if (col.gameObject.GetComponent<Vortex> ().getId () == 4) {
+				if (col.gameObject.GetComponent<Vortex> ().getId () == 6) {
 					SceneManager.LoadScene ("WinGameScene");
 				} else {
 					Vector3 posicaoTeletransporte = this.manager.teletransportarVortex (col.gameObject);

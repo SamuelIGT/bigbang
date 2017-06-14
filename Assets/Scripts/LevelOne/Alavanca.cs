@@ -8,15 +8,14 @@ public class Alavanca : MonoBehaviour {
 	private bool ativada;
 	private ManagerBackground managerBackground;
 	private ManagerAla managerAla;
-	private Animation animation;
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		ativada = false;
 		managerBackground = GameObject.FindGameObjectWithTag ("ManagerBackground").GetComponent<ManagerBackground> ();
 		managerAla = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerAla> ();
-		animation = this.gameObject.GetComponent<Animation> ();
-		animation.Play ("ativadaBranco");
+		animator = this.gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -27,29 +26,14 @@ public class Alavanca : MonoBehaviour {
 	void OnTriggerStay(Collider col){
 		if (col.gameObject.tag == "Player") {
 			if (Input.GetKeyUp (KeyCode.Space) && !ativada) {
-				switch(managerBackground.getAlavancasAtivadas()){
-				case 1: 
-					this.animation.Play ("ativadaRoxa");
-					break;
-				case 2:
-					this.animation.Play ("ativadaAzul");
-					break;
-				default:
-					Debug.Log (managerBackground.getAlavancasAtivadas());
-					this.gameObject.GetComponent<Animation> ().Play("ativadaBranco");
-					//this.animation.Play ("ativadaBranco");
-					break;
-				}
-					
+				managerBackground.mudarCenario (this.id);
+				Debug.Log (managerBackground.getAlavancasAtivadas ());
+				animator.SetInteger("qtdAlavancas", managerBackground.getAlavancasAtivadas());
 				ativada = true;
 				managerAla.carregarVortex (this.id);
-				managerBackground.mudarCenario (this.id);
+
 			}
 		}
 	}
-
-//	public void alteraCor(){
-//		this.animation.
-//	}
 		
 }

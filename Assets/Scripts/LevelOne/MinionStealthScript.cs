@@ -6,8 +6,8 @@ public class MinionStealthScript : MonoBehaviour {
 
 	public float velocidade = 2.0f;
 	public bool direcao;
-	private float limiteDireita = 260;
-	private float limiteEsquerda = -260;
+	public float limiteDireita;
+	public float limiteEsquerda;
 
 	// Use this for initialization
 	void Start () {
