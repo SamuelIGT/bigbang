@@ -9,6 +9,7 @@ public class Alavanca : MonoBehaviour {
 	private ManagerBackground managerBackground;
 	private ManagerAla managerAla;
 	private Animator animator;
+	private Animation animacao;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class Alavanca : MonoBehaviour {
 		managerBackground = GameObject.FindGameObjectWithTag ("ManagerBackground").GetComponent<ManagerBackground> ();
 		managerAla = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerAla> ();
 		animator = this.gameObject.GetComponent<Animator> ();
+		animacao = this.gameObject.GetComponent<Animation> ();
 	}
 	
 	// Update is called once per frame
@@ -27,10 +29,12 @@ public class Alavanca : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			if (Input.GetKeyUp (KeyCode.Space) && !ativada) {
 				managerBackground.mudarCenario (this.id);
-				Debug.Log (managerBackground.getAlavancasAtivadas ());
-				animator.SetInteger("qtdAlavancas", managerBackground.getAlavancasAtivadas());
-				ativada = true;
 				managerAla.carregarVortex (this.id);
+				Debug.Log("quantidade alavancas antes: " + animator.GetInteger ("qtdAlavancas"));
+				animator.SetInteger("qtdAlavancas", managerBackground.getAlavancasAtivadas());
+				Debug.Log("quantidade alavancas depois: " + animator.GetInteger ("qtdAlavancas"));
+				ativada = true;
+				animator.SetBool ("ativada", true);
 
 			}
 		}
