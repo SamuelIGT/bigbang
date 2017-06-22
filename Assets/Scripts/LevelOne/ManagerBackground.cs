@@ -10,7 +10,6 @@ public class ManagerBackground : MonoBehaviour {
 	private GameObject[] alaBranca = new GameObject[quantElementosAla];
 	private GameObject[] alaRoxa = new GameObject[quantElementosAla];
 	private GameObject[] alaAzul = new GameObject[quantElementosAla];
-	private GameObject[] alavancas = new GameObject[quantAlas];
 	private ModalController modal;
 	private double temperaturaAtual;
 	private int alavancasAtivadas;
@@ -20,7 +19,6 @@ public class ManagerBackground : MonoBehaviour {
 		alaBranca = GameObject.FindGameObjectsWithTag ("AlaBranca");
 		alaRoxa = GameObject.FindGameObjectsWithTag ("AlaRoxa");
 		alaAzul = GameObject.FindGameObjectsWithTag ("AlaAzul");
-		alavancas = GameObject.FindGameObjectsWithTag ("Alavanca");
 
 		//inicializa backgrounds
 		backgrounds [0].SetActive (true);
@@ -86,12 +84,6 @@ public class ManagerBackground : MonoBehaviour {
 			}
 		}
 	}
-
-//	public void alterarCorAlavanca(int idAlavanca){
-//		for (int i = 0; i < alavancas.Length; i++) {
-//			alavancas [i].GetComponent<Animatio> (
-//		}
-//	}
 
 	public int getQuantAlas(){
 		return ManagerBackground.quantAlas;

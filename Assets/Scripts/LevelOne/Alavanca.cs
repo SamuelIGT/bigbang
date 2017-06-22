@@ -9,7 +9,6 @@ public class Alavanca : MonoBehaviour {
 	private ManagerBackground managerBackground;
 	private ManagerAla managerAla;
 	private Animator animator;
-	private Animation animacao;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +16,6 @@ public class Alavanca : MonoBehaviour {
 		managerBackground = GameObject.FindGameObjectWithTag ("ManagerBackground").GetComponent<ManagerBackground> ();
 		managerAla = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerAla> ();
 		animator = this.gameObject.GetComponent<Animator> ();
-		animacao = this.gameObject.GetComponent<Animation> ();
 	}
 	
 	// Update is called once per frame
