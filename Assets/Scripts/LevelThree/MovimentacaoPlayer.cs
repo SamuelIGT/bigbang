@@ -35,7 +35,7 @@ public class MovimentacaoPlayer : MonoBehaviour {
 	}
 
 	public void dash(){
-		Debug.Log ("dash: " + framesDash);
+		//Debug.Log ("dash: " + framesDash);
 		float velocidade; 
 		if (framesDash < 1.0f) {
 			velocidade = 200.0f;
