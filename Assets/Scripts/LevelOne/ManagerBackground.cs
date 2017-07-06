@@ -36,7 +36,7 @@ public class ManagerBackground : MonoBehaviour {
 		}
 
 		//inicializa textos da UI
-		temperaturaAtual = 10;
+		temperaturaAtual = 39;
 		alavancasAtivadas = 0;
 		modal = GameObject.Find ("Managers").GetComponent<ModalController> ();
 		atualizarTextosUI ();
@@ -50,7 +50,7 @@ public class ManagerBackground : MonoBehaviour {
 	public void mudarCenario(int idAlavanca){
 		if (idAlavanca > 0) {
 			//atualiza textos UI
-			temperaturaAtual -= 10;
+			temperaturaAtual -= 2;
 			alavancasAtivadas++;
 			atualizarTextosUI ();
 			if (idAlavanca < quantAlas) {
@@ -90,7 +90,7 @@ public class ManagerBackground : MonoBehaviour {
 	}
 
 	public void atualizarTextosUI(){
-		this.modal.temperatura.text = "Temperatura: " + temperaturaAtual + "º";
+		this.modal.temperatura.text = "Temperatura: 10 ^ " + temperaturaAtual + "º";
 		this.modal.alavancas.text = "Alavancas: " + alavancasAtivadas + "/" + quantAlas;
 	}
 

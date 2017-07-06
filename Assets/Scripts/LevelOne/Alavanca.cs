@@ -28,9 +28,7 @@ public class Alavanca : MonoBehaviour {
 			if (Input.GetKeyUp (KeyCode.Space) && !ativada) {
 				managerBackground.mudarCenario (this.id);
 				managerAla.carregarVortex (this.id);
-				Debug.Log("quantidade alavancas antes: " + animator.GetInteger ("qtdAlavancas"));
 				animator.SetInteger("qtdAlavancas", managerBackground.getAlavancasAtivadas());
-				Debug.Log("quantidade alavancas depois: " + animator.GetInteger ("qtdAlavancas"));
 				ativada = true;
 				animator.SetBool ("ativada", true);
 

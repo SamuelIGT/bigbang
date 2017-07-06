@@ -5,6 +5,7 @@ using UnityEngine;
 public class Vortex : MonoBehaviour {
 	private int id;
 	private string cor;
+	private string tipo;
 
 	void Start(){
 
@@ -25,6 +26,12 @@ public class Vortex : MonoBehaviour {
 	}
 	public void setCor(string cor){
 		this.cor = cor;
+	}
+	public string getTipo(){
+		return this.tipo;
+	}
+	public void setTipo(string tipo){
+		this.tipo = tipo;
 	}
 	public Texture getTextura(){
 		return this.gameObject.GetComponent<MeshRenderer> ().material.mainTexture;
