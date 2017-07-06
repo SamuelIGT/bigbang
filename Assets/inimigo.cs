@@ -19,6 +19,7 @@ public class inimigo : MonoBehaviour {
 	void Update () {
 		
 		float distancia = (this.gameObject.transform.position - jogador.gameObject.transform.position).magnitude;
+
 		if (distancia < 20.0f) {
 			NavMeshAgent agente = this.gameObject.GetComponent<NavMeshAgent> ();
 			agente.gameObject.transform.position = Vector3.MoveTowards (this.gameObject.transform.position,
@@ -31,7 +32,4 @@ public class inimigo : MonoBehaviour {
 			this.gameObject.transform.Translate (Vector3.right * velocidade * horizontal);
 		}
 	}
-
-
-
 }
