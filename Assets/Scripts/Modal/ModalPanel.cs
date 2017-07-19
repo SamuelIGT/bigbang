@@ -6,15 +6,20 @@ using System.Collections;
 //  This script will be updated in Part 2 of this 2 part series.
 public class ModalPanel : MonoBehaviour {
 
-	public Text question;
+	public Text winText;
+	public Text endText;
 	public Image iconImage;
 	public Button yesButton;
 	public Button noButton;
 	public Button cancelButton;
 	public GameObject modalPanelObject;
+	private ModalController modalController;
 
 	private static ModalPanel modalPanel;
 
+	void Start(){
+		modalController = GameObject.FindGameObjectWithTag ("ManagerModal").GetComponent<ModalController> (); 
+	}
 	public static ModalPanel Instance () {
 		if (!modalPanel) {
 			modalPanel = FindObjectOfType(typeof (ModalPanel)) as ModalPanel;
@@ -26,7 +31,7 @@ public class ModalPanel : MonoBehaviour {
 	}
 
 	// Yes/No/Cancel: A string, a Yes event, a No event and Cancel event
-	public void Choice (string question) {
+	public void Choice (string winText, string endText) {
 		modalPanelObject.SetActive (true);
 
 		yesButton.onClick.RemoveAllListeners();
@@ -41,9 +46,9 @@ public class ModalPanel : MonoBehaviour {
 		//cancelButton.onClick.AddListener (cancelEvent);
 		cancelButton.onClick.AddListener (ClosePanel);
 
-		this.question.text = question;
+		this.winText.text = winText;
+		this.endText.text = endText;
 
-		this.iconImage.gameObject.SetActive (false);
 		yesButton.gameObject.SetActive (true);
 		noButton.gameObject.SetActive (false);
 		cancelButton.gameObject.SetActive (false);
@@ -52,6 +57,9 @@ public class ModalPanel : MonoBehaviour {
 	public void ClosePanel () {
 		modalPanelObject.SetActive (false);
 		Time.timeScale = 1.0f;
-		GameObject.FindGameObjectWithTag ("Player").GetComponent<MovimentacaoAlltron> ().setEscondido (false);
+		if (modalController.fase == 1) {
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<MovimentacaoAlltron> ().setEscondido (false);
+		}
+
 	}
 }

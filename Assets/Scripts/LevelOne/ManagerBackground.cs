@@ -90,8 +90,8 @@ public class ManagerBackground : MonoBehaviour {
 	}
 
 	public void atualizarTextosUI(){
-		this.modal.temperatura.text = "Temperatura: 10 ^ " + temperaturaAtual + "º";
-		this.modal.alavancas.text = "Alavancas: " + alavancasAtivadas + "/" + quantAlas;
+		this.modal.elementosTextoUI[0].text = "Temperatura: 10 ^ " + temperaturaAtual + "º";
+		this.modal.elementosTextoUI[1].text = "Alavancas: " + alavancasAtivadas + "/" + quantAlas;
 	}
 
 	public double getTemperaturaAtual(){
