@@ -14,7 +14,7 @@ public class ModalController : MonoBehaviour {
 	void Start () {		
 		modalPanel = ModalPanel.Instance ();
 		editarComportamentoAlltron (fase);
-		carregarTextoModal (fase);
+		modalPanel.Choice ();
 		Time.timeScale = 0.0f;
 	}
 	
@@ -25,26 +25,6 @@ public class ModalController : MonoBehaviour {
 			modalPanel.modalPanelObject.SetActive (true);
 			Time.timeScale = 0.0f;
 		}
-	}
-
-	public void carregarTextoModal(int fase){
-		switch(fase){
-		case 1:
-			modalPanel.Choice ("Desative todas as alavancas para esfriar o mundo e permitir a criação das partículas."
-			+ " Use as cavernas para se esconder dos Minions.",
-				" Cuidado com os Minions do Exército Darkon! Eles podem matar o Alltron apenas encostando nele.");
-			break;
-		case 3:
-			modalPanel.Choice ("Derrote os Minions e o General Darkon para permitir a liberação dos elétrons que estão aprisionados.",
-				"Cuidado com os ataques dos Minions e do General Darkon! O Alltron morrerá quando sofrer três ataques.");
-			break;
-		default:
-			modalPanel.Choice ("Desate todas as alavancas para esfriar o mundo e permitir a criação das partículas."
-				+ " Use as cavernas para se esconder dos Minions.",
-				" Cuidado com os Minions do Exército Darkon! Eles podem matar o Alltron apenas encostando nele.");
-			break;
-		}
-
 	}
 
 	public void editarComportamentoAlltron(int fase){

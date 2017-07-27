@@ -6,8 +6,6 @@ using System.Collections;
 //  This script will be updated in Part 2 of this 2 part series.
 public class ModalPanel : MonoBehaviour {
 
-	public Text winText;
-	public Text endText;
 	public Image iconImage;
 	public Button yesButton;
 	public Button noButton;
@@ -31,7 +29,7 @@ public class ModalPanel : MonoBehaviour {
 	}
 
 	// Yes/No/Cancel: A string, a Yes event, a No event and Cancel event
-	public void Choice (string winText, string endText) {
+	public void Choice () {
 		modalPanelObject.SetActive (true);
 
 		yesButton.onClick.RemoveAllListeners();
@@ -45,9 +43,6 @@ public class ModalPanel : MonoBehaviour {
 		cancelButton.onClick.RemoveAllListeners();
 		//cancelButton.onClick.AddListener (cancelEvent);
 		cancelButton.onClick.AddListener (ClosePanel);
-
-		this.winText.text = winText;
-		this.endText.text = endText;
 
 		yesButton.gameObject.SetActive (true);
 		noButton.gameObject.SetActive (false);
