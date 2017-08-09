@@ -1,0 +1,426 @@
+fileFormatVersion: 2
+guid: 68ce5c72853aff1448f364dab34af758
+timeCreated: 1502302918
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: skill_dash2_0
+    21300002: skill_dash2_1
+    21300004: skill_dash2_2
+    21300006: skill_dash2_3
+    21300008: skill_dash2_4
+    21300010: skill_dash2_5
+    21300012: skill_dash2_6
+    21300014: skill_dash2_7
+    21300016: skill_dash2_8
+    21300018: skill_dash2_9
+    21300020: skill_dash2_10
+    21300022: skill_dash2_11
+    21300024: skill_dash2_12
+    21300026: skill_dash2_13
+    21300028: skill_dash2_14
+    21300030: skill_dash2_15
+    21300032: skill_dash2_16
+    21300034: skill_dash2_17
+    21300036: skill_dash2_18
+    21300038: skill_dash2_19
+    21300040: skill_dash2_20
+    21300042: skill_dash2_21
+    21300044: skill_dash2_22
+    21300046: skill_dash2_23
+    21300048: skill_dash2_24
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skill_dash2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1093.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1093.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1093.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1093.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1093.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 820.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 820.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 820.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_8
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 820.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 820.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 547.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 547.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 547.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_13
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 547.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 547.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 274.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_16
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 274.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 274.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 274.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_19
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 274.6
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.6000061
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1.6000061
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_22
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1.6000061
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_23
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1.6000061
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: skill_dash2_24
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1.6000061
+        width: 300
+        height: 273.4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

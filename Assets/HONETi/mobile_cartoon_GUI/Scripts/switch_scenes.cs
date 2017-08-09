@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class switch_scenes : MonoBehaviour {
 	
@@ -11,7 +12,7 @@ public class switch_scenes : MonoBehaviour {
 		Button b = GetComponent<Button> ();
 		if (b != null && sceneName != "")
 		{
-			b.onClick.AddListener(() => {Application.LoadLevel(sceneName);});
+			b.onClick.AddListener(() => {SceneManager.LoadScene(sceneName);});
 		}
 	}
 	

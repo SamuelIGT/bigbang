@@ -14,7 +14,7 @@ public class CameraLevelThree : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float horizontalDist = gameObject.transform.position.x - player.position.x;
-        Debug.Log(horizontalDist);
+        //Debug.Log(horizontalDist);
         if (horizontalDist < -13.0f || horizontalDist > 13.0f) {
             Vector3 novaPosicao = new Vector3(player.position.x, player.position.y + deslocamento, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, novaPosicao, Time.time);
