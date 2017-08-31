@@ -10,14 +10,14 @@ public class SistemaDeDano : MonoBehaviour
 
     public void perdeVida(int dano)
     {
-        vida = vida - dano;
-        Debug.Log(">> " + vida + " <<");
-        Debug.Log("-- Dano causado: " + dano + " --");
+		Debug.Log ("Vida atual: " + vida);
+		vida = vida - dano;
+		Debug.Log ("Vida depois do dano: " + vida);
+		Debug.Log ("-- Dano causado: " + dano + " --");
     }
 
     void Update()
-    {
-        
+    {    
         if (vida <= 0) {
             SceneManager.LoadScene("EndGameScene");
         }

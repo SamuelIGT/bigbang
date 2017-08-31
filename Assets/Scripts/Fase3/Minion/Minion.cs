@@ -65,12 +65,4 @@ public class Minion : MonoBehaviour {
             }
         }
     }
-    //Sistema de dano no player
-    /*void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            SDano.perdeVida(5);
-        }
-    }*/
 }

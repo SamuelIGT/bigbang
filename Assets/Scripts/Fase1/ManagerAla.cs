@@ -33,7 +33,7 @@ public class ManagerAla : MonoBehaviour {
 		if (idAlavanca == 1) {
 			if (objetosVortex [0] == null && objetosVortex [1] == null && objetosVortex[2] == null && objetosVortex[3] == null) {
 				//inicializa vortex 0
-				inicializaVortex(objetosVortex, vortexPrefab, 0, new Vector3 (260.0f, -81.0f, 21.0f), texturas [colorVortex], cores [colorVortex], "simples");
+				inicializaVortex(objetosVortex, vortexPrefab, 0, new Vector3 (240.0f, -81.0f, 21.0f), texturas [colorVortex], cores [colorVortex], "simples");
 				//inicializa vortex 1
 				inicializaVortex(objetosVortex, vortexPrefab, 1, new Vector3 (-310.0f, 114.0f, 21.0f), texturas [colorVortex], cores [colorVortex], "simples");
 				//inicializa vortex que desaparece aleatoriamente (2 e 3)
