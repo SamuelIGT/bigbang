@@ -4,42 +4,35 @@ using UnityEngine;
 
 public class ManagerBackground : MonoBehaviour {
 	private const int quantAlas = 3;
-	private const int quantElementosAla = 21;
+	private const int quantElementosUI = 4;
 	public GameObject[] backgrounds = new GameObject[quantAlas];
 	public GameObject[] molduras = new GameObject[quantAlas];
-	private GameObject[] alaBranca = new GameObject[quantElementosAla];
-	private GameObject[] alaRoxa = new GameObject[quantElementosAla];
-	private GameObject[] alaAzul = new GameObject[quantElementosAla];
+	public GameObject[] termometros = new GameObject[quantElementosUI];
+	public GameObject[] alavancasUI = new GameObject[quantElementosUI];
+	private GameObject[] elementosTemperatura1 = new GameObject[21];
+	private GameObject[] elementosTemperatura2 = new GameObject[22];
+	private GameObject[] elementosTemperatura3 = new GameObject[22];
 	private ModalController modal;
-	private double temperaturaAtual;
 	private int alavancasAtivadas;
 
 	// Use this for initialization
 	void Start () {
-		alaBranca = GameObject.FindGameObjectsWithTag ("AlaBranca");
-		alaRoxa = GameObject.FindGameObjectsWithTag ("AlaRoxa");
-		alaAzul = GameObject.FindGameObjectsWithTag ("AlaAzul");
+		elementosTemperatura1 = GameObject.FindGameObjectsWithTag ("ElementosTemperatura1");
+		elementosTemperatura2 = GameObject.FindGameObjectsWithTag ("ElementosTemperatura2");
+		elementosTemperatura3 = GameObject.FindGameObjectsWithTag ("ElementosTemperatura3");
 
 		//inicializa backgrounds
-		backgrounds [0].SetActive (true);
-		backgrounds [1].SetActive (false);
-		backgrounds [2].SetActive (false);
+		inicializarElementosBackground(backgrounds);
 		//inicializa molduras
-		molduras [0].SetActive (true);
-		molduras [1].SetActive (false);
-		molduras [2].SetActive (false);
+		inicializarElementosBackground(molduras);
 		//inicializa paredes, pisos e tetos
-		for(int i = 0; i < quantElementosAla; i++){
-			alaBranca [i].SetActive (true);
-			alaRoxa [i].SetActive (false);
-			alaAzul [i].SetActive (false);
-		}
+		inicializarElementosMolduraInterna();
+		//inicializa elementos UI
+		inicializarElementosBackground(termometros);
+		inicializarElementosBackground (alavancasUI);
 
-		//inicializa textos da UI
-		temperaturaAtual = 39;
 		alavancasAtivadas = 0;
 		modal = GameObject.Find ("Managers").GetComponent<ModalController> ();
-		atualizarTextosUI ();
 	}
 	
 	// Update is called once per frame
@@ -49,12 +42,11 @@ public class ManagerBackground : MonoBehaviour {
 
 	public void mudarCenario(int idAlavanca){
 		if (idAlavanca > 0) {
-			//atualiza textos UI
-			temperaturaAtual -= 2;
 			alavancasAtivadas++;
-			atualizarTextosUI ();
+			//atualiza elementos UI
+			alterarElementosUI(idAlavanca);
+		
 			if (idAlavanca < quantAlas) {
-				//alterarCorAlavanca (idAlavanca);
 				for (int i = 0; i < quantAlas; i++) {
 					if (i != idAlavanca) {
 						backgrounds [i].SetActive (false);
@@ -63,41 +55,65 @@ public class ManagerBackground : MonoBehaviour {
 				}
 				backgrounds [idAlavanca].SetActive (true);
 				molduras [idAlavanca].SetActive (true);
-				alterarCorElementosAla (idAlavanca);	
+				alterarTemperaturaElementosAla (idAlavanca);	
 			}
 		}	
 	}
 
-	public void alterarCorElementosAla(int idAlavanca){
-		if (idAlavanca != quantAlas) {
-			for(int i = 0; i < quantElementosAla; i++){
-				if (idAlavanca == 1) {
-					alaBranca [i].SetActive (false);
-					alaRoxa [i].SetActive (true);
-					alaAzul [i].SetActive (false);
-				} else {
-					alaBranca [i].SetActive (false);
-					alaRoxa [i].SetActive (false);
-					alaAzul [i].SetActive (true);
-				}
+	public void alterarTemperaturaElementosAla(int idAlavanca){
+		if (idAlavanca == 1) {
+			alterarElementosMolduraInterna (elementosTemperatura1, false);
+			alterarElementosMolduraInterna (elementosTemperatura2, true);
+			alterarElementosMolduraInterna (elementosTemperatura3, false);
+		}
+		if (idAlavanca == 2) {
+			alterarElementosMolduraInterna (elementosTemperatura1, false);
+			alterarElementosMolduraInterna (elementosTemperatura2, false);
+			alterarElementosMolduraInterna (elementosTemperatura3, true);
+		}
+	}
+		
+	public void inicializarElementosBackground(GameObject[] elementos){
+		for (int i = 1; i < elementos.Length; i++) {
+			elementos [i].SetActive (false);
+		}
+		elementos [0].SetActive (true);
+	}
 
-			}
+	public void inicializarElementosMolduraInterna(){
+		alterarElementosMolduraInterna (elementosTemperatura1, true);
+		alterarElementosMolduraInterna (elementosTemperatura2, false);
+		alterarElementosMolduraInterna (elementosTemperatura3, false);
+	}
+
+	public void alterarElementosMolduraInterna(GameObject[] elementosTemperaturaX, bool visibilidade){
+		for (int i = 0; i < elementosTemperaturaX.Length; i++) {
+			elementosTemperaturaX [i].SetActive (visibilidade);
+		}
+	}
+		
+	public void alterarElementosUI(int idAlavanca){
+		if (idAlavanca == 3) {
+			termometros [3].SetActive (true);
+			alavancasUI [3].SetActive (true);
+			alavancasUI [2].SetActive (false);
+		} else {
+			for (int i = 0; i < quantElementosUI; i++) {
+				if (i == idAlavanca) {
+					termometros [i].SetActive (true);
+					alavancasUI [i].SetActive (true);
+				} else {
+					termometros [i].SetActive (false);
+					alavancasUI [i].SetActive (false);
+				}
+			}	
 		}
 	}
 
 	public int getQuantAlas(){
 		return ManagerBackground.quantAlas;
 	}
-
-	public void atualizarTextosUI(){
-		this.modal.elementosTextoUI[0].text = "Temperatura: 10 ^ " + temperaturaAtual + "º";
-		this.modal.elementosTextoUI[1].text = "Alavancas: " + alavancasAtivadas + "/" + quantAlas;
-	}
-
-	public double getTemperaturaAtual(){
-		return this.temperaturaAtual;
-	}
-
+		
 	public int getAlavancasAtivadas(){
 		return this.alavancasAtivadas;
 	}
