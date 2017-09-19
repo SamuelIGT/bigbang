@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 68ce5c72853aff1448f364dab34af758
-timeCreated: 1502302918
+guid: d03f96e3c6389a94b9a57497af4515ad
+timeCreated: 1505339881
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -99,11 +99,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1093.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 1432.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -111,12 +111,12 @@ TextureImporter:
       name: skill_dash2_1
       rect:
         serializedVersion: 2
-        x: 300
-        y: 1093.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 386
+        y: 1432.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -124,12 +124,12 @@ TextureImporter:
       name: skill_dash2_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 1093.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 772
+        y: 1432.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -137,12 +137,12 @@ TextureImporter:
       name: skill_dash2_3
       rect:
         serializedVersion: 2
-        x: 900
-        y: 1093.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1158
+        y: 1432.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -150,12 +150,12 @@ TextureImporter:
       name: skill_dash2_4
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1093.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1544
+        y: 1432.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -164,11 +164,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 820.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 1074.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -176,12 +176,12 @@ TextureImporter:
       name: skill_dash2_6
       rect:
         serializedVersion: 2
-        x: 300
-        y: 820.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 386
+        y: 1074.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -189,12 +189,12 @@ TextureImporter:
       name: skill_dash2_7
       rect:
         serializedVersion: 2
-        x: 600
-        y: 820.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 772
+        y: 1074.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -202,12 +202,12 @@ TextureImporter:
       name: skill_dash2_8
       rect:
         serializedVersion: 2
-        x: 900
-        y: 820.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1158
+        y: 1074.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -215,12 +215,12 @@ TextureImporter:
       name: skill_dash2_9
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 820.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1544
+        y: 1074.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -229,11 +229,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 547.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 716.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -241,12 +241,12 @@ TextureImporter:
       name: skill_dash2_11
       rect:
         serializedVersion: 2
-        x: 300
-        y: 547.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 386
+        y: 716.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -254,12 +254,12 @@ TextureImporter:
       name: skill_dash2_12
       rect:
         serializedVersion: 2
-        x: 600
-        y: 547.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 772
+        y: 716.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -267,12 +267,12 @@ TextureImporter:
       name: skill_dash2_13
       rect:
         serializedVersion: 2
-        x: 900
-        y: 547.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1158
+        y: 716.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -280,12 +280,12 @@ TextureImporter:
       name: skill_dash2_14
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 547.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1544
+        y: 716.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -294,11 +294,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 274.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 358.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -306,12 +306,12 @@ TextureImporter:
       name: skill_dash2_16
       rect:
         serializedVersion: 2
-        x: 300
-        y: 274.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 386
+        y: 358.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -319,12 +319,12 @@ TextureImporter:
       name: skill_dash2_17
       rect:
         serializedVersion: 2
-        x: 600
-        y: 274.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 772
+        y: 358.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -332,12 +332,12 @@ TextureImporter:
       name: skill_dash2_18
       rect:
         serializedVersion: 2
-        x: 900
-        y: 274.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1158
+        y: 358.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -345,12 +345,12 @@ TextureImporter:
       name: skill_dash2_19
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 274.6
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1544
+        y: 358.8
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -359,11 +359,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1.6000061
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 0.7999878
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -371,12 +371,12 @@ TextureImporter:
       name: skill_dash2_21
       rect:
         serializedVersion: 2
-        x: 300
-        y: 1.6000061
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 386
+        y: 0.7999878
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -384,12 +384,12 @@ TextureImporter:
       name: skill_dash2_22
       rect:
         serializedVersion: 2
-        x: 600
-        y: 1.6000061
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 772
+        y: 0.7999878
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -397,12 +397,12 @@ TextureImporter:
       name: skill_dash2_23
       rect:
         serializedVersion: 2
-        x: 900
-        y: 1.6000061
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1158
+        y: 0.7999878
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -410,12 +410,12 @@ TextureImporter:
       name: skill_dash2_24
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1.6000061
-        width: 300
-        height: 273.4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1544
+        y: 0.7999878
+        width: 386
+        height: 358.2
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

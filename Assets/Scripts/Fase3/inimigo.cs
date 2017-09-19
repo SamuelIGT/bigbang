@@ -23,7 +23,6 @@ public class inimigo : MonoBehaviour {
 			NavMeshAgent agente = this.gameObject.GetComponent<NavMeshAgent> ();
 			agente.gameObject.transform.position = Vector3.MoveTowards (this.gameObject.transform.position,
 				jogador.transform.position, velocidade);
-			//agente.SetDestination (jogador.transform.position);
 		} else {
 			Debug.Log (distancia);
 			if (distancia > 20.0f) {

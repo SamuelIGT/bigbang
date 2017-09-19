@@ -35,47 +35,37 @@ public class Darkon : MonoBehaviour {
 
 		float distancia = (this.gameObject.transform.position - jogador.gameObject.transform.position).magnitude;
 		float horizontalDist = gameObject.gameObject.transform.position.x - jogador.gameObject.transform.position.x;
-        //animator.SetBool("andando", true);
-        if (distancia < 20.0f) {
-
-            agente.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, jogador.transform.position, velocidade);
+		if(distancia < 5.0f){
+			jogador.transform.position = Vector3.MoveTowards (jogador.transform.position, this.gameObject.transform.position, velocidade);
+		} else if (distancia < 20.0f) {
+			agente.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, jogador.transform.position, velocidade);
            
 			if (horizontalDist < 0) {
 				transform.eulerAngles = new Vector2 (0, 0);
 			} else {
 				transform.eulerAngles = new Vector2 (0, 180);
 			}
-			//			agente.SetDestination (jogador.transform.position);
 		} else {
-            
             if (Random.Range (1, 1000) == 1){
 				horizontal = horizontal * -1;
 			}
 			this.gameObject.transform.Translate (Vector2.right * velocidade * horizontal);
 		}
-
-        //Debug.Log ("Distancia: "+ distancia + "distanciaAtaque: "+ distanciaAtaque);
+			
 
         if (!atacou && distancia > distanciaAtaque)
         {
-            //animator.SetBool("andando", false);
             animator.SetTrigger("atacou");
-            //animator.SetTrigger("atacou");
             atacou = true;
-            Debug.Log(animator.enabled);
             Instantiate(ataque, transform.position, transform.rotation);
         }else if (!atacou2 && distancia < distanciaAtaque)
         {
-          //  animator.SetBool("andando", false);
             animator.SetTrigger("atacouDois");
             
             atacou2 = true;
-          //  Debug.Log("attack2");
         }
 
 		if(atacou) {
-          //  animator.SetBool("andando", true);
-            // Debug.Log("cont");
             contagemIntervalo += Time.deltaTime;
 			if (contagemIntervalo >= intervaloAtaque) {
                 atacou = false;
@@ -83,12 +73,8 @@ public class Darkon : MonoBehaviour {
 			}
 		}
 
-        if (atacou2)
-        {
-           
-            //  animator.SetBool("andando", true);
-            // Debug.Log("cont");
-            contagemIntervalo += Time.deltaTime;
+        if (atacou2){
+			contagemIntervalo += Time.deltaTime;
             
             if (contagemIntervalo >= 5f)
             {
@@ -99,5 +85,12 @@ public class Darkon : MonoBehaviour {
         }
 
     }
+
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag == "Player") {
+			SistemaDeDano SDano = other.gameObject.GetComponent<SistemaDeDano> ();
+			SDano.perdeVida ();
+		}
+	}
     
 }

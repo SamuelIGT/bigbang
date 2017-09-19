@@ -8,11 +8,12 @@ public class Minion : MonoBehaviour {
     private float contagemIntervalo;
     private Animator animator;
     private GameObject jogador;
-    private int horizontal;
+	private int horizontal;
     public float velocidade;
     NavMeshAgent agente;
     private SistemaDeDano SDano;
-    // Use this for initialization
+    
+	// Use this for initialization
     void Start(){
         horizontal = 1;
         jogador = GameObject.FindWithTag("Player");
@@ -20,13 +21,13 @@ public class Minion : MonoBehaviour {
         animator = GetComponentInChildren<Animator>();
         agente = this.gameObject.GetComponent<NavMeshAgent>();
     }
-    // Update is called once per frame
+    
+	// Update is called once per frame
     void Update(){
         float distancia = (this.gameObject.transform.position - jogador.gameObject.transform.position).magnitude;
         float horizontalDist = gameObject.gameObject.transform.position.x - jogador.gameObject.transform.position.x;
-        //animator.SetBool("andando", true);
         if (distancia < 5.0f){
-            agente.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, jogador.transform.position, velocidade);
+			jogador.transform.position = Vector3.MoveTowards (jogador.transform.position, this.gameObject.transform.position, velocidade);
             if (horizontalDist < 0){
                 transform.eulerAngles = new Vector2(0, 0);
             }
@@ -35,6 +36,9 @@ public class Minion : MonoBehaviour {
             }
             if (Random.Range(1, 1000) < 10){
                 animator.SetTrigger("atacou");
+				// para o novo ataque do minion
+				this.GetComponentInChildren<AreaDanoAtaqueMinion>().Ataque();
+
             }
         }
         else{
@@ -43,7 +47,6 @@ public class Minion : MonoBehaviour {
                 if (Random.Range(1,100) > 50 ){
                     horizontal = horizontal * -1;
                 }
-              //  Debug.Log(horizontal);
                 contagemIntervalo = 0;
                 verificador = false;
                 if (Random.value < 0.3f){
