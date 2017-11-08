@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 11bfb3e7cc123c34998c4bc2e45a1bee
-timeCreated: 1493009014
+guid: 83bef36f8d45f27408cebed90e2c56ff
+timeCreated: 1510164709
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,10 +79,10 @@ TextureImporter:
       name: minion1f1_0
       rect:
         serializedVersion: 2
-        x: 50
+        x: 0
         y: 1200
-        width: 503
-        height: 597
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -92,10 +92,10 @@ TextureImporter:
       name: minion1f1_1
       rect:
         serializedVersion: 2
-        x: 717
-        y: 1253
-        width: 370
-        height: 412
+        x: 600
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -105,10 +105,10 @@ TextureImporter:
       name: minion1f1_2
       rect:
         serializedVersion: 2
-        x: 185
-        y: 708
-        width: 231
-        height: 381
+        x: 0
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,10 +118,10 @@ TextureImporter:
       name: minion1f1_3
       rect:
         serializedVersion: 2
-        x: 813
-        y: 700
-        width: 244
-        height: 401
+        x: 600
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: minion1f1_4
       rect:
         serializedVersion: 2
-        x: 185
-        y: 99
-        width: 234
-        height: 400
+        x: 0
+        y: 0
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: minion1f1_5
       rect:
         serializedVersion: 2
-        x: 781
-        y: 101
-        width: 241
-        height: 396
+        x: 600
+        y: 0
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

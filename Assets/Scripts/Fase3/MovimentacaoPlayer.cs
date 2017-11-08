@@ -3,35 +3,33 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.AI;
 
-public class MovimentacaoPlayer : MonoBehaviour {
+public class MovimentacaoPlayer : MonoBehaviour
+{
 
-	public Transform spritePlayer;
 	private Animator animator;
-
 	private float framesDash;
 	private int horizontal;
 	private float move;
 	private bool aplicandoDash;
 	private bool acumulandoDash;
 	private float velocidadeDash;
-	private Rigidbody rb;
 	private Vector3 posicaoDestino;
 	private float limiteDireita = 38.5f;
 	private float limiteEsquerda = -38.5f;
 
 	Quaternion rotacao;
 
-	void Start () {
+	void Start ()
+	{
 		horizontal = 1;
-		animator = spritePlayer.GetComponent<Animator>();
-		rb = this.gameObject.GetComponent<Rigidbody> ();
+		animator = this.gameObject.GetComponent<Animator> ();
 		aplicandoDash = false;
 		acumulandoDash = false;
 	}
 
 	// Update is called once per frame
-	void Update () {
-		Debug.Log ("1dash" + animator.GetBool("dash"));
+	void Update ()
+	{
 		move = 0;
 		animator.SetFloat ("movimento", move);
 
@@ -69,32 +67,30 @@ public class MovimentacaoPlayer : MonoBehaviour {
 					aplicandoDash = true;
 					framesDash = Time.timeSinceLevelLoad - framesDash;
 					calcularDestinoDash ();
-					Debug.Log ("culpado");
-					animator.SetBool ("dash", aplicandoDash);
+					this.animator.SetBool ("dash", aplicandoDash);
 				}
 			}
 		}
 	}
 
-	public float getVelocidadeDash(){
+	public float getVelocidadeDash ()
+	{
 		return this.velocidadeDash;
 	}
 
-	public void dash(){
-		Vector3 posicaoAtual = this.gameObject.transform.position;
-		if (posicaoAtual.x != this.posicaoDestino.x) {
-			//Debug.Log ("antes: "  + this.gameObject.transform.position.x + "destino: " + this.posicaoDestino.x);
-			this.gameObject.transform.position = Vector3.MoveTowards (posicaoAtual, posicaoDestino, 0.1f);
-			//Debug.Log ("depois: "  + this.gameObject.transform.position.x + "destino: " + this.posicaoDestino.x);
-		} else {
+	public void dash ()
+	{
+		this.gameObject.transform.position = Vector3.MoveTowards (this.gameObject.transform.position, posicaoDestino, 0.1f);
+
+		if (this.gameObject.transform.position.magnitude.Equals (this.posicaoDestino.magnitude)) {
 			this.aplicandoDash = false;
-			animator.SetBool ("dash", false);
+			this.animator.SetBool ("dash", aplicandoDash);
 			framesDash = 0.0f;
-			//Debug.Log ("AQUI!! CERTO");
 		}
 	}
 
-	public void calcularVelocidadeDash(){
+	public void calcularVelocidadeDash ()
+	{
 		if (framesDash < 1.0f) {
 			this.velocidadeDash = 2.0f;
 		} else if (framesDash < 3.0f) {
@@ -104,7 +100,8 @@ public class MovimentacaoPlayer : MonoBehaviour {
 		}
 	}
 
-	public void calcularDestinoDash(){
+	public void calcularDestinoDash ()
+	{
 		calcularVelocidadeDash ();
 		if (this.transform.position.x + velocidadeDash * horizontal < limiteEsquerda
 		    || this.transform.position.x + velocidadeDash * horizontal > limiteDireita) {
@@ -121,7 +118,8 @@ public class MovimentacaoPlayer : MonoBehaviour {
 		}
 	}
 
-	public float verificaHorizontal(){
+	public float verificaHorizontal ()
+	{
 		if (this.horizontal == 1) {
 			return Time.deltaTime;
 		} else {
@@ -129,31 +127,14 @@ public class MovimentacaoPlayer : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision other){
+	void OnCollisionEnter (Collision other)
+	{
 		if (other.gameObject.tag == "Minion" || other.gameObject.tag == "Inimigo") {
-//			this.posicaoDestino = this.transform.position;
-//			this.aplicandoDash = false;
-//			animator.SetBool ("dash", aplicandoDash);
-//			framesDash = 0.0f;
-//			move = 0;
-//			Debug.Log ("dash: " + aplicandoDash + " move: " + move + " acumulandoDash: " + acumulandoDash);
 			SistemaDeDano SDano = other.gameObject.GetComponent<SistemaDeDano> ();
 			SDano.perdeVida ();
 		}
 	}
-
-	void OnTriggerEnter(Collider col){
-		//Debug.Log ("antes dash: " + aplicandoDash + " move: " + move + " acumulandoDash: " + acumulandoDash);
-		//Debug.Log ("antes trigger: "  + this.gameObject.transform.position.x + "destino: " + this.posicaoDestino.x);
-		this.posicaoDestino = this.transform.position;
-		this.aplicandoDash = false;
-		animator.SetBool("dash", false);
-		Debug.Log ("2dash" + animator.GetBool("dash"));
-		framesDash = 0.0f;
-		move = 0;
-		//Debug.Log ("depois dash: " + aplicandoDash + " move: " + move + " acumulandoDash: " + acumulandoDash);
-		//Debug.Log ("depois: "  + this.gameObject.transform.position.x + "destino: " + this.posicaoDestino.x);
-	}
+		
 
 }
 

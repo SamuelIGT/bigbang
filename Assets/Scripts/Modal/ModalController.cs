@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ModalController : MonoBehaviour {
+public class ModalController : MonoBehaviour
+{
 
-	public Text[] elementosTextoUI;
 	public int fase;
 	private ModalPanel modalPanel;
 	public GameObject alltron;
 
 	// Use this for initialization
-	void Start () {		
+	void Start ()
+	{		
 		modalPanel = ModalPanel.Instance ();
 		editarComportamentoAlltron (fase);
 		modalPanel.Choice ();
@@ -19,7 +20,8 @@ public class ModalController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (Input.GetKeyUp (KeyCode.H)) {
 			editarComportamentoAlltron (fase);
 			modalPanel.modalPanelObject.SetActive (true);
@@ -27,8 +29,9 @@ public class ModalController : MonoBehaviour {
 		}
 	}
 
-	public void editarComportamentoAlltron(int fase){
-		switch(fase){
+	public void editarComportamentoAlltron (int fase)
+	{
+		switch (fase) {
 		case 3:
 			
 			break;
