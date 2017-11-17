@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class MovimentacaoPlayer : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class MovimentacaoPlayer : MonoBehaviour
 	private float move;
 	private bool aplicandoDash;
 	private bool acumulandoDash;
+	private bool atacando;
+	private float tempoUltimoDash;
 	private float velocidadeDash;
 	private Vector3 posicaoDestino;
 	private float limiteDireita = 38.5f;
@@ -25,6 +28,7 @@ public class MovimentacaoPlayer : MonoBehaviour
 		animator = this.gameObject.GetComponent<Animator> ();
 		aplicandoDash = false;
 		acumulandoDash = false;
+		this.tempoUltimoDash = Time.timeSinceLevelLoad;
 	}
 
 	// Update is called once per frame
@@ -33,14 +37,17 @@ public class MovimentacaoPlayer : MonoBehaviour
 		move = 0;
 		animator.SetFloat ("movimento", move);
 
-		if (aplicandoDash) {
-			dash ();
+		if (aplicandoDash == true) {
+			//Debug.Log ("antes: " + this.gameObject.transform.position.x + " - " + this.posicaoDestino.x);
+			aplicarDash ();
+			//Debug.Log ("depois: " + this.gameObject.transform.position.x + " - " + this.posicaoDestino.x);
+
 		} else {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				acumulandoDash = true;
 				framesDash = Time.timeSinceLevelLoad;
 			}
-			if (!acumulandoDash) {
+			if (!acumulandoDash && move == 0) {
 				if (Input.GetKey (KeyCode.LeftArrow)) {
 					horizontal = -1;
 					move = 1;
@@ -65,28 +72,31 @@ public class MovimentacaoPlayer : MonoBehaviour
 				if (Input.GetKeyUp (KeyCode.Space)) {
 					acumulandoDash = false;
 					aplicandoDash = true;
+					this.atacando = true;
 					framesDash = Time.timeSinceLevelLoad - framesDash;
 					calcularDestinoDash ();
-					this.animator.SetBool ("dash", aplicandoDash);
+					this.animator.SetFloat ("dash", framesDash);
 				}
 			}
 		}
 	}
 
-	public float getVelocidadeDash ()
-	{
-		return this.velocidadeDash;
-	}
-
-	public void dash ()
+	public void aplicarDash ()
 	{
 		this.gameObject.transform.position = Vector3.MoveTowards (this.gameObject.transform.position, posicaoDestino, 0.1f);
-
-		if (this.gameObject.transform.position.magnitude.Equals (this.posicaoDestino.magnitude)) {
-			this.aplicandoDash = false;
-			this.animator.SetBool ("dash", aplicandoDash);
-			framesDash = 0.0f;
+		if (this.gameObject.transform.position.x == this.posicaoDestino.x) {
+			pararDash ();
+			this.atacando = false;
 		}
+	}
+
+	public void pararDash ()
+	{
+		this.aplicandoDash = false;
+		framesDash = 0.0f;
+		this.animator.SetFloat ("dash", framesDash);
+		this.posicaoDestino = new Vector3 ();
+		this.tempoUltimoDash = Time.timeSinceLevelLoad;
 	}
 
 	public void calcularVelocidadeDash ()
@@ -127,14 +137,45 @@ public class MovimentacaoPlayer : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter (Collision other)
+	public float getVelocidadeDash ()
 	{
-		if (other.gameObject.tag == "Minion" || other.gameObject.tag == "Inimigo") {
+		return this.velocidadeDash;
+	}
+
+	public bool getAplicandoDash ()
+	{
+		return this.aplicandoDash;
+	}
+
+	public bool getAtacando ()
+	{
+		return this.atacando;
+	}
+
+	// Retorna um inteiro contendo a direção horizontal do Player(Alltron).
+	public int getHorizontal ()
+	{
+		return this.horizontal;
+	}
+
+	void OnCollisionEnter (Collision other)
+	{	
+		pararDash ();
+		if (atacando == true && (other.gameObject.tag == "Minion" || other.gameObject.tag == "Inimigo")) {
+			//Debug.Log (Time.timeSinceLevelLoad - tempoUltimoDash);
+			//if (Time.timeSinceLevelLoad - tempoUltimoDash > 0 && Time.timeSinceLevelLoad - tempoUltimoDash <= 0.5f) {
 			SistemaDeDano SDano = other.gameObject.GetComponent<SistemaDeDano> ();
-			SDano.perdeVida ();
+			SDano.perderVida ();	
+			//}
 		}
 	}
-		
 
+	void OnTriggerEnter (Collider other)
+	{
+		pararDash ();
+		if (other.gameObject.tag == "Vortex") {
+			SceneManager.LoadScene ("WinGameScene");
+		}
+	}
 }
 

@@ -8,10 +8,16 @@ public class AreaDanoAtaqueMinion : MonoBehaviour
 	float estado = 0;
 	// 1 expandir; -1 retrarir; 0= neutro
 	float areaMax = 4.0f;
+	private MeshRenderer meshRenderer;
+	private bool atacando;
+	
 	// Use this for initialization
 	void Start ()
 	{
 		estado = 0;
+		meshRenderer = this.gameObject.GetComponent<MeshRenderer> ();
+		meshRenderer.enabled = false;
+		this.atacando = false;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +28,8 @@ public class AreaDanoAtaqueMinion : MonoBehaviour
 			estado = -1;
 		} else if (this.gameObject.transform.localScale.x <= 1.0f) {
 			estado = 0;
+			meshRenderer.enabled = false;
+			this.atacando = false;
 		}
 	}
 
@@ -29,9 +37,18 @@ public class AreaDanoAtaqueMinion : MonoBehaviour
 	{
 		if (estado == 0) {
 			this.estado = 1;
+			this.atacando = true;
 		}
 	}
 
-
-
+	void OnTriggerEnter (Collider other)
+	{
+		if (this.atacando == true && other.gameObject.tag == "Player") {
+			meshRenderer.enabled = true;
+			SistemaDeDano SDano = other.gameObject.GetComponent<SistemaDeDano> ();
+			SDano.perderVida ();
+			this.atacando = false;
+		}
+	}
+		
 }
