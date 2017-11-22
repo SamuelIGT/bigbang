@@ -19,6 +19,8 @@ public class MovimentacaoPlayer : MonoBehaviour
 	private Vector3 posicaoDestino;
 	private float limiteDireita = 38.5f;
 	private float limiteEsquerda = -38.5f;
+	private float velocidadeDirecaoHorizontal = 5.0f;
+	private float velocidadeDirecaoVertical = 7.0f;
 
 	Quaternion rotacao;
 
@@ -28,6 +30,7 @@ public class MovimentacaoPlayer : MonoBehaviour
 		animator = this.gameObject.GetComponent<Animator> ();
 		aplicandoDash = false;
 		acumulandoDash = false;
+		this.atacando = false;
 		this.tempoUltimoDash = Time.timeSinceLevelLoad;
 	}
 
@@ -51,21 +54,21 @@ public class MovimentacaoPlayer : MonoBehaviour
 				if (Input.GetKey (KeyCode.LeftArrow)) {
 					horizontal = -1;
 					move = 1;
-					this.gameObject.transform.Translate (Vector3.right * Time.deltaTime * 4.0f);
+					this.gameObject.transform.Translate (Vector3.right * Time.deltaTime * velocidadeDirecaoHorizontal);
 					this.gameObject.transform.eulerAngles = new Vector2 (0, 180);
 				} else if (Input.GetKey (KeyCode.RightArrow)) {
 					horizontal = 1;
 					move = 1;
-					this.gameObject.transform.Translate (Vector3.right * Time.deltaTime * 4.0f);	
+					this.gameObject.transform.Translate (Vector3.right * Time.deltaTime * velocidadeDirecaoHorizontal);	
 					this.gameObject.transform.eulerAngles = new Vector2 (0, 0);
 				} else if (Input.GetKey (KeyCode.UpArrow)) {
 					move = 1;
 					float test = verificaHorizontal ();
-					this.gameObject.transform.Translate (Vector3.forward * test * 6.0f);	
+					this.gameObject.transform.Translate (Vector3.forward * test * velocidadeDirecaoVertical);	
 				} else if (Input.GetKey (KeyCode.DownArrow)) {
 					move = 1;
 					float test = verificaHorizontal ();
-					this.gameObject.transform.Translate (Vector3.back * test * 6.0f);	
+					this.gameObject.transform.Translate (Vector3.back * test * velocidadeDirecaoVertical);	
 				}
 				animator.SetFloat ("movimento", move);
 			} else {
@@ -161,12 +164,11 @@ public class MovimentacaoPlayer : MonoBehaviour
 	void OnCollisionEnter (Collision other)
 	{	
 		pararDash ();
+		Debug.Log (this.atacando);
 		if (atacando == true && (other.gameObject.tag == "Minion" || other.gameObject.tag == "Inimigo")) {
-			//Debug.Log (Time.timeSinceLevelLoad - tempoUltimoDash);
-			//if (Time.timeSinceLevelLoad - tempoUltimoDash > 0 && Time.timeSinceLevelLoad - tempoUltimoDash <= 0.5f) {
 			SistemaDeDano SDano = other.gameObject.GetComponent<SistemaDeDano> ();
-			SDano.perderVida ();	
-			//}
+			SDano.perderVida ();
+			this.atacando = false;
 		}
 	}
 

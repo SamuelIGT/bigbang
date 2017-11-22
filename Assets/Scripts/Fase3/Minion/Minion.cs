@@ -41,7 +41,6 @@ public class Minion : MonoBehaviour
 				transform.eulerAngles = new Vector2 (0, 180);
 			}
 			if (Random.Range (1, 1000) < 5) {
-				Debug.Log ("randomizou");
 				animator.SetTrigger ("atacou");
 				// para o novo ataque do minion
 				this.GetComponentInChildren<AreaDanoAtaqueMinion> ().Ataque ();

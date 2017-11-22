@@ -76,12 +76,12 @@ public class SistemaDeDano : MonoBehaviour
 				SceneManager.LoadScene ("EndGameScene");
 			}
 			if (this.gameObject.tag == "Inimigo") {
-				managerHud.aumentarBarraProgresso (0.25f);
+				managerHud.aumentarBarraProgresso (0.28f);
 				instanciador.habilitarVortex ();
 			}
 			if (this.gameObject.tag == "Minion") {
 				instanciador.incrementarQuantMinionsMortos ();
-				managerHud.aumentarBarraProgresso (0.08f);
+				managerHud.aumentarBarraProgresso (0.06f);
 				instanciador.respawnInimigo ();
 			}
 			Destroy (this.gameObject);
