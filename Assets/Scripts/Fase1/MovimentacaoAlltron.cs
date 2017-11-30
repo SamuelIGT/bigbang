@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MovimentacaoAlltron : MonoBehaviour {
+public class MovimentacaoAlltron : MonoBehaviour
+{
 
 	private bool andando;
 	private bool escondido;
 	private Animator animator;
 	private ManagerAla manager;
+	private ControllerScene controllerScene;
 	private float limiteDireita;
 	private float limiteEsquerda;
 	private float velocidade;
 	public Transform spritePlayer;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		manager = GameObject.FindGameObjectWithTag ("ManagerAla").GetComponent<ManagerAla> ();
+		controllerScene = ControllerScene.getInstance ();
 		andando = false;
 		escondido = false;
 		animator = spritePlayer.GetComponent<Animator> ();
@@ -26,12 +30,12 @@ public class MovimentacaoAlltron : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		Vector3 posicaoAtual = this.gameObject.transform.position;
 		if (andando) {
 			animator.SetBool ("andando", true);
-		}
-		else{
+		} else {
 			animator.SetBool ("andando", false);
 		}
 
@@ -58,13 +62,14 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerStay(Collider col){
+	void OnTriggerStay (Collider col)
+	{
 		
 		if (col.gameObject.tag == "Vortex") {
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				
 				if (col.gameObject.GetComponent<Vortex> ().getId () == 6) {
-					SceneManager.LoadScene ("WinGameScene");
+					controllerScene.runCutscene ("Cutscene1", "LevelThreeScene");
 				} else {
 					Vector3 posicaoTeletransporte = this.manager.teletransportarVortex (col.gameObject);
 					this.gameObject.transform.position = new Vector3 (posicaoTeletransporte.x, posicaoTeletransporte.y - 8.5f, 
@@ -84,7 +89,8 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		}
 	}
 
-	void entrarPorta(){
+	void entrarPorta ()
+	{
 		if (!escondido) {
 			Vector3 posicaoAtual = this.gameObject.transform.position;
 			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 34.0f);
@@ -92,7 +98,8 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		}
 	}
 
-	void sairPorta(){
+	void sairPorta ()
+	{
 		if (escondido) {
 			Vector3 posicaoAtual = this.gameObject.transform.position;
 			this.gameObject.transform.position = new Vector3 (posicaoAtual.x, posicaoAtual.y, 20.0f);
@@ -100,7 +107,8 @@ public class MovimentacaoAlltron : MonoBehaviour {
 		}
 	}
 
-	public void setEscondido(bool estado){
+	public void setEscondido (bool estado)
+	{
 		this.escondido = estado;
 	}
 }
