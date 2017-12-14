@@ -8,7 +8,7 @@ public class ManagerBackground : MonoBehaviour
 	private const int quantElementosUI = 4;
 	public GameObject[] backgrounds = new GameObject[quantAlas];
 	public GameObject[] molduras = new GameObject[quantAlas];
-	public GameObject[] termometros = new GameObject[quantElementosUI];
+	public GameObject[] termometros = new GameObject[3];
 	public GameObject[] alavancasUI = new GameObject[quantElementosUI];
 	public Sprite[] spritesPorta = new Sprite[3];
 	private GameObject[] elementosTemperatura1 = new GameObject[21];
@@ -51,10 +51,11 @@ public class ManagerBackground : MonoBehaviour
 		if (idAlavanca > 0) {
 			alavancasAtivadas++;
 			//atualiza elementos UI
-			alterarElementosUI (idAlavanca);
+			alterarElementosUI (termometros, idAlavanca);
+			alterarElementosUI (alavancasUI, idAlavanca);
 
 			if (idAlavanca < quantAlas) {
-				//atualiza o sprite/cor das portas
+				//atualiza o sprite ou cor das portas
 				atualizarSpritePortas (idAlavanca);
 				for (int i = 0; i < quantAlas; i++) {
 					if (i != idAlavanca) {
@@ -105,22 +106,13 @@ public class ManagerBackground : MonoBehaviour
 		}
 	}
 
-	public void alterarElementosUI (int idAlavanca)
+	public void alterarElementosUI (GameObject[] elementosUI, int idAlavanca)
 	{
-		if (idAlavanca == 3) {
-			termometros [3].SetActive (true);
-			alavancasUI [3].SetActive (true);
-			alavancasUI [2].SetActive (false);
-		} else {
-			for (int i = 0; i < quantElementosUI; i++) {
-				if (i == idAlavanca) {
-					termometros [i].SetActive (true);
-					alavancasUI [i].SetActive (true);
-				} else {
-					termometros [i].SetActive (false);
-					alavancasUI [i].SetActive (false);
-				}
-			}	
+		if (idAlavanca < elementosUI.Length) {
+			for (int i = 0; i < elementosUI.Length; i++) {
+				elementosUI [i].SetActive (false);
+			}
+			elementosUI [idAlavanca].SetActive (true);	
 		}
 	}
 

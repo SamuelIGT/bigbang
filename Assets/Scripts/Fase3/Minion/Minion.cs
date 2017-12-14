@@ -32,7 +32,6 @@ public class Minion : MonoBehaviour
 		float horizontalDist = gameObject.gameObject.transform.position.x - jogador.gameObject.transform.position.x;
 		if (distancia < 5.0f) {
 			if (jogador.gameObject.GetComponent<MovimentacaoPlayer> ().getAplicandoDash () == false) {
-				//Debug.Log ("atraindo alltron");
 				jogador.transform.position = Vector3.MoveTowards (jogador.transform.position, this.gameObject.transform.position, velocidade);
 			}
 			if (horizontalDist < 0) {

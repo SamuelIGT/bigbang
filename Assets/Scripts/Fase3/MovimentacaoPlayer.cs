@@ -176,7 +176,8 @@ public class MovimentacaoPlayer : MonoBehaviour
 	{
 		pararDash ();
 		if (other.gameObject.tag == "Vortex") {
-			SceneManager.LoadScene ("WinGameScene");
+			PlayerPrefs.SetString ("nextLevelScene", "LevelFourScene");
+			ControllerScene.getInstance ().runNextLevelScene ();
 		}
 	}
 }
