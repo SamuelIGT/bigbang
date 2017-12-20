@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ControllerScene : MonoBehaviour
 {
 
 	private static ControllerScene controllerScene = new ControllerScene ();
+
 
 	private ControllerScene ()
 	{
@@ -18,10 +20,11 @@ public class ControllerScene : MonoBehaviour
 		return controllerScene;
 	}
 
-	public void runCutscene (string nameCutscene, string nameNextLevelScene)
+	public void runCutscene (string nameCutscene, string nameNextLevelScene, string textButtonNextLevel)
 	{
 		PlayerPrefs.SetString ("nameCutscene", nameCutscene);
 		PlayerPrefs.SetString ("nextLevelScene", nameNextLevelScene);
+		PlayerPrefs.SetString ("textButtonNext", textButtonNextLevel);
 		SceneManager.LoadScene ("Cutscene");
 	}
 

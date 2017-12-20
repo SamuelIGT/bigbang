@@ -6,13 +6,16 @@ public class HodMecanica : MonoBehaviour
 {
 	private Animator animator;
 	private MovimentacaoPlayerFase4 movimentacaoPlayer;
-	private float duracaoAnimacaoDesaparecer = 0.25f;
+	private float duracaoAnimacaoDesaparecer = 3.0f;
 	private float tempoUltimoDano;
 	private ManagerHud managerHud;
 
 	private bool recebendoDano;
 	// -1 para posição à direita do Hod e 1 para posição à esquerda.
 	private int direcaoHorizontal = 1;
+	private float posicaoHorizontalDireita = -15.42f;
+	private float posicaoHorizontalEsquerda = -42.42f;
+	private int quantidadeDano = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -42,7 +45,8 @@ public class HodMecanica : MonoBehaviour
 			tempoUltimoDano = Time.timeSinceLevelLoad;
 			recebendoDano = true;
 			animator.SetBool ("recebendoDano", recebendoDano);
-			managerHud.aumentarBarraProgresso (0.01f);
+			managerHud.aumentarBarraProgresso (0.014f);
+			aumentarQuantidadeDano ();
 		}			
 	}
 
@@ -51,7 +55,33 @@ public class HodMecanica : MonoBehaviour
 		// Inverte a direção horizontal.
 		direcaoHorizontal = direcaoHorizontal * -1;
 		Debug.Log (direcaoHorizontal);
-		// Altera a posicao multiplicando a posição em X pela direção atual. 
-		this.gameObject.transform.position = new Vector3 (7.5f * direcaoHorizontal, 1.0f, Random.Range (-3.0f, 3.0f));
+
+		// Verifica a direção horizontal e altera a posição em X baseando-se nessa direção.
+		// Altera também a posição em Z baseando-se em um randomico.
+		if (direcaoHorizontal == 1) {
+			this.gameObject.transform.position = new Vector3 (posicaoHorizontalDireita, 0.09f, Random.Range (-3.0f, 3.0f));	
+		} else {
+			this.gameObject.transform.position = new Vector3 (posicaoHorizontalEsquerda, 0.09f, Random.Range (-3.0f, 3.0f));
+		}
+
+		// Altera a rotação em 180 graus no eixo Y. 
+		this.gameObject.transform.RotateAround (this.transform.position, new Vector3 (0, 1, 0), 180);
 	}
+
+	public void aumentarQuantidadeDano ()
+	{
+		this.quantidadeDano += 1;
+		verificarNumeroMaximoDeDano ();
+	}
+
+	public void verificarNumeroMaximoDeDano ()
+	{
+		if (quantidadeDano == 15) {
+			Debug.Log ("game win");
+			// Chamar última cutscene.
+			// Próxima fase é o menu principal
+			//ControllerScene.getInstance().runCutscene(
+		}
+	}
+
 }

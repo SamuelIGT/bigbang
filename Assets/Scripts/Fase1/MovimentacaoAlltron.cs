@@ -69,7 +69,7 @@ public class MovimentacaoAlltron : MonoBehaviour
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				
 				if (col.gameObject.GetComponent<Vortex> ().getId () == 6) {
-					controllerScene.runCutscene ("Cutscene1", "LevelThreeScene");
+					controllerScene.runCutscene ("Cutscene1", "LevelTwoScene", "Próxima Fase");
 				} else {
 					Vector3 posicaoTeletransporte = this.manager.teletransportarVortex (col.gameObject);
 					this.gameObject.transform.position = new Vector3 (posicaoTeletransporte.x, posicaoTeletransporte.y - 8.5f, 

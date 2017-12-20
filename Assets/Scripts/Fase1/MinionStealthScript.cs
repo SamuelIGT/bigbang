@@ -37,7 +37,6 @@ public class MinionStealthScript : MonoBehaviour
 	void OnCollisionEnter (Collision colisor)
 	{
 		if (colisor.gameObject.tag == "Player") {
-			//var player = colisor.gameObject;
 			ControllerScene.getInstance ().runEndGameScene ();
 		}
 	}

@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: aa0c847231148264b922f0203e22eff0
-timeCreated: 1504293367
+guid: 28bc30c4aba6a65448cd85d8ee3b170c
+timeCreated: 1513298168
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Termometro_0
     21300002: Termometro_1
     21300004: Termometro_2
-    21300006: Termometro_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -79,8 +78,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 134
-        height: 369
+        width: 225
+        height: 628
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -90,10 +89,10 @@ TextureImporter:
       name: Termometro_1
       rect:
         serializedVersion: 2
-        x: 134
+        x: 426
         y: 0
-        width: 134
-        height: 369
+        width: 225
+        height: 628
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,23 +102,10 @@ TextureImporter:
       name: Termometro_2
       rect:
         serializedVersion: 2
-        x: 268
+        x: 860
         y: 0
-        width: 134
-        height: 369
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Termometro_3
-      rect:
-        serializedVersion: 2
-        x: 402
-        y: 0
-        width: 134
-        height: 369
+        width: 226
+        height: 628
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

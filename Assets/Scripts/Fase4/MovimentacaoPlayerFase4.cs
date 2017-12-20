@@ -17,8 +17,8 @@ public class MovimentacaoPlayerFase4 : MonoBehaviour
 	private Vector3 posicaoDestino;
 	private float limiteDireita = -15.5f;
 	private float limiteEsquerda = -42.5f;
-	private float velocidadeDirecaoHorizontal = 5.0f;
-	private float velocidadeDirecaoVertical = 7.0f;
+	private float velocidadeDirecaoHorizontal = 6.0f;
+	private float velocidadeDirecaoVertical = 8.0f;
 
 	Quaternion rotacao;
 
