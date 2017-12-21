@@ -5,13 +5,17 @@ using UnityEngine;
 public class HodMecanica : MonoBehaviour
 {
 	private Animator animator;
+	private AnimatorClipInfo[] animatorClipInfo;
 	private MovimentacaoPlayerFase4 movimentacaoPlayer;
 	private float duracaoAnimacaoDesaparecer = 3.0f;
+	private float duracaoAnimacaoLancarPedra = 8.0f;
 	private float tempoUltimoDano;
+	private float tempoUltimoAtaquePedra;
 	private ManagerHud managerHud;
 
 	private bool recebendoDano;
 	// -1 para posição à direita do Hod e 1 para posição à esquerda.
+	private bool ataquePedra;
 	private int direcaoHorizontal = 1;
 	private float posicaoHorizontalDireita = -15.42f;
 	private float posicaoHorizontalEsquerda = -42.42f;
@@ -24,17 +28,35 @@ public class HodMecanica : MonoBehaviour
 		movimentacaoPlayer = GameObject.FindGameObjectWithTag ("Player").GetComponent<MovimentacaoPlayerFase4> ();
 		managerHud = GameObject.FindGameObjectWithTag ("ManagerHud").GetComponent<ManagerHud> ();
 		recebendoDano = false;
+		ataquePedra = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if (ataquePedra) {
+			Debug.Log (animatorClipInfo [0].clip.name);
+			//secondsAnimation += animatorClipInfo [0].clip.length;
+		}
 		if (recebendoDano == true && (Time.timeSinceLevelLoad - tempoUltimoDano > duracaoAnimacaoDesaparecer)) {
-			Debug.Log ("acabou animacao");
 			alterarPosicaoHod ();
 			recebendoDano = false;
 			animator.SetBool ("recebendoDano", recebendoDano);
 			tempoUltimoDano = 0.0f;
+		} else {
+			// Verifica a chance de atacar.
+			if (Random.Range (1, 600) == 1) {
+				Debug.Log ("pode atacar");
+				// Verifica qual tipo de ataque, 1 para lançar pedra e 2 para atrair.
+				if (Random.Range (1, 3) == 1) {
+					ataquePedra = true;
+					animator.SetBool ("ataquePedra", ataquePedra);
+					animatorClipInfo = animator.GetCurrentAnimatorClipInfo (0);
+					//	tempoUltimoAtaquePedra = 
+				} else {
+				
+				}
+			}
 		}
 	}
 
@@ -54,7 +76,6 @@ public class HodMecanica : MonoBehaviour
 	{
 		// Inverte a direção horizontal.
 		direcaoHorizontal = direcaoHorizontal * -1;
-		Debug.Log (direcaoHorizontal);
 
 		// Verifica a direção horizontal e altera a posição em X baseando-se nessa direção.
 		// Altera também a posição em Z baseando-se em um randomico.
