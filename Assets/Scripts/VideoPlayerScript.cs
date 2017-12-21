@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class VideoPlayerScript : MonoBehaviour
 {
 
+	public VideoClip[] cutsceneVideos;
 	public GameObject panelVideo;
 	public GameObject panelButtons;
 	public VideoPlayer videoPlayer;
@@ -17,9 +18,11 @@ public class VideoPlayerScript : MonoBehaviour
 		textButtonNext = GameObject.FindGameObjectWithTag ("TextButtonNext").GetComponent<Text> (); 
 		setTextButtonNext ();
 
-		string nameCutscene = PlayerPrefs.GetString ("nameCutscene");
-		if (nameCutscene != null) {
-			videoPlayer.url = Application.dataPath + "/CutsceneVideos/" + nameCutscene + ".mp4";
+		string currentCutscene = PlayerPrefs.GetString ("idCutscene");
+		if (currentCutscene != null && cutsceneVideos != null) {
+			int idCutscene = int.Parse (currentCutscene);
+			videoPlayer.clip = cutsceneVideos [idCutscene];
+			panelButtons.SetActive (false);
 			videoPlayer.Play ();
 		}
 		videoPlayer.loopPointReached += EndReached;

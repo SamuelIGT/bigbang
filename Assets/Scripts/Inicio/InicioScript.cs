@@ -35,7 +35,7 @@ public class InicioScript : MonoBehaviour
 
 	public void iniciarJogo ()
 	{
-		ControllerScene.getInstance ().runCutscene ("CutscenePrologo", "LevelOneScene", "Iniciar Jogo");
+		ControllerScene.getInstance ().runCutscene (0, "LevelOneScene", "Iniciar Jogo");
 	}
 
 	public void chamarCreditos ()

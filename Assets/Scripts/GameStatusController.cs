@@ -65,7 +65,7 @@ public class GameStatusController : MonoBehaviour
 	{
 		if (hasGameStarted) {
 			if (progressImage.fillAmount == 1f) {
-				ControllerScene.getInstance ().runCutscene ("Cutscene2", "LevelThreeScene", "Próxima Fase");
+				ControllerScene.getInstance ().runCutscene (2, "LevelThreeScene", "Próxima Fase");
 				hasGameStarted = false;
 			} else {
 				Debug.Log ("Progress: " + progressImage.fillAmount + "\tYou Lose!");

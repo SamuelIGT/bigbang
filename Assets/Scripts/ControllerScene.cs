@@ -20,9 +20,9 @@ public class ControllerScene : MonoBehaviour
 		return controllerScene;
 	}
 
-	public void runCutscene (string nameCutscene, string nameNextLevelScene, string textButtonNextLevel)
+	public void runCutscene (int idCutscene, string nameNextLevelScene, string textButtonNextLevel)
 	{
-		PlayerPrefs.SetString ("nameCutscene", nameCutscene);
+		PlayerPrefs.SetString ("idCutscene", idCutscene.ToString ());
 		PlayerPrefs.SetString ("nextLevelScene", nameNextLevelScene);
 		PlayerPrefs.SetString ("textButtonNext", textButtonNextLevel);
 		SceneManager.LoadScene ("Cutscene");
