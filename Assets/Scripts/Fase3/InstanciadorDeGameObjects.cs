@@ -45,6 +45,7 @@ public class InstanciadorDeGameObjects : MonoBehaviour
 		else if (this.quantidadeMinionsMortos == this.quantidadeMaxMinions) {
 			inimigoDarkon.gameObject.GetComponent<Personagem> ().setVida (10);
 			inimigoDarkon.SetActive (true);
+			inimigoDarkon.GetComponent<Darkon> ().setEstadoAtivo (true);
 		}
 	}
 

@@ -7,8 +7,7 @@ public class SistemaDeDanoFase4 : MonoBehaviour
 
 	private float valorDano;
 	private float tempoUltimoDano;
-	private SistemaDeDano sdPlayer;
-	private SistemaDeDano sdInimigo;
+	private SistemaDeDanoFase4 sdPlayer;
 	private Personagem personagem;
 
 	// Use this for initialization
@@ -17,7 +16,7 @@ public class SistemaDeDanoFase4 : MonoBehaviour
 		this.valorDano = 1.0f;
 		this.tempoUltimoDano = Time.timeSinceLevelLoad;
 		this.personagem = this.gameObject.GetComponent<Personagem> ();
-		sdPlayer = GameObject.FindGameObjectWithTag ("Player").GetComponent<SistemaDeDano> ();
+		sdPlayer = GameObject.FindGameObjectWithTag ("Player").GetComponent<SistemaDeDanoFase4> ();
 	}
 
 	void Update ()
@@ -41,25 +40,6 @@ public class SistemaDeDanoFase4 : MonoBehaviour
 			this.tempoUltimoDano = Time.timeSinceLevelLoad;
 		}
 	}
-
-	//	public void aplicarForcaDano ()
-	//	{
-	//		int direcaoHorizontal = 0;
-	//		if (this.gameObject.tag == "Minion") {
-	//			direcaoHorizontal = this.gameObject.GetComponent<Minion> ().getHorizontal ();
-	//		}
-	//		if (this.gameObject.tag == "Inimigo") {
-	//			direcaoHorizontal = this.gameObject.GetComponent<Darkon> ().getHorizontal ();
-	//		}
-	//		if (this.gameObject.tag == "Player") {
-	//			direcaoHorizontal = this.gameObject.GetComponent<MovimentacaoPlayer> ().getHorizontal ();
-	//		}
-	//
-	//		if (direcaoHorizontal != 0) {
-	//			Vector3 posicaoAtual = this.gameObject.transform.position;
-	//			this.gameObject.transform.position = new Vector3 (posicaoAtual.x + 0.5f * direcaoHorizontal, posicaoAtual.y, posicaoAtual.z);
-	//		}
-	//	}
 
 	public void verificarDestroyGameObject ()
 	{

@@ -17,8 +17,8 @@ public class MovimentacaoPlayer : MonoBehaviour
 	private float tempoUltimoDash;
 	private float velocidadeDash;
 	private Vector3 posicaoDestino;
-	private float limiteDireita = 38.5f;
-	private float limiteEsquerda = -38.5f;
+	private float limiteDireita = 36.0f;
+	private float limiteEsquerda = -36.0f;
 	private float velocidadeDirecaoHorizontal = 5.0f;
 	private float velocidadeDirecaoVertical = 7.0f;
 
@@ -69,6 +69,12 @@ public class MovimentacaoPlayer : MonoBehaviour
 					move = 1;
 					float test = verificaHorizontal ();
 					this.gameObject.transform.Translate (Vector3.back * test * velocidadeDirecaoVertical);	
+				}
+				if (gameObject.transform.position.x < limiteEsquerda) {
+					gameObject.transform.position = new Vector3 (limiteEsquerda, gameObject.transform.position.y, gameObject.transform.position.z);
+				}
+				if (gameObject.transform.position.x > limiteDireita) {
+					gameObject.transform.position = new Vector3 (limiteDireita, gameObject.transform.position.y, gameObject.transform.position.z);
 				}
 				animator.SetFloat ("movimento", move);
 			} else {
@@ -164,7 +170,6 @@ public class MovimentacaoPlayer : MonoBehaviour
 	void OnCollisionEnter (Collision other)
 	{	
 		pararDash ();
-		Debug.Log (this.atacando);
 		if (atacando == true && (other.gameObject.tag == "Minion" || other.gameObject.tag == "Inimigo")) {
 			SistemaDeDano SDano = other.gameObject.GetComponent<SistemaDeDano> ();
 			SDano.perderVida ();

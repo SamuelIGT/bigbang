@@ -12,10 +12,10 @@ public class Personagem : MonoBehaviour
 	void Start ()
 	{
 		if (this.gameObject.tag == "Inimigo") {
-			setVida (8);
+			setVida (6);
 		}
 		if (this.gameObject.tag == "Player") {
-			setVida (15);
+			setVida (30);
 		}
 		if (this.gameObject.tag == "Minion") {
 			setVida (2);

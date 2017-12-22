@@ -1,21 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HodMecanica : MonoBehaviour
 {
 	private Animator animator;
-	private AnimatorClipInfo[] animatorClipInfo;
+	private Sprite spriteHod;
 	private MovimentacaoPlayerFase4 movimentacaoPlayer;
-	private float duracaoAnimacaoDesaparecer = 3.0f;
+	private ManagerHud managerHud;
+	public GameObject pedraPrefab;
+	public Sprite[] spritesPedra;
+
+	private float duracaoAnimacaoDesaparecer = 2.0f;
 	private float duracaoAnimacaoLancarPedra = 8.0f;
+	private float duracaoAnimacaoAtrair = 11.0f;
 	private float tempoUltimoDano;
 	private float tempoUltimoAtaquePedra;
-	private ManagerHud managerHud;
+	private float tempoUltimoAtaqueAtrair;
+	private float tempoUltimaInstanciaPedra;
+	private float duracaoNovaInstanciaPedra = 1.0f;
 
 	private bool recebendoDano;
 	// -1 para posição à direita do Hod e 1 para posição à esquerda.
 	private bool ataquePedra;
+	private bool ataqueAtrair;
 	private int direcaoHorizontal = 1;
 	private float posicaoHorizontalDireita = -15.42f;
 	private float posicaoHorizontalEsquerda = -42.42f;
@@ -25,6 +34,7 @@ public class HodMecanica : MonoBehaviour
 	void Start ()
 	{
 		animator = this.gameObject.GetComponentInChildren<Animator> ();
+		spriteHod = this.gameObject.GetComponentInChildren<SpriteRenderer> ().sprite;
 		movimentacaoPlayer = GameObject.FindGameObjectWithTag ("Player").GetComponent<MovimentacaoPlayerFase4> ();
 		managerHud = GameObject.FindGameObjectWithTag ("ManagerHud").GetComponent<ManagerHud> ();
 		recebendoDano = false;
@@ -35,27 +45,28 @@ public class HodMecanica : MonoBehaviour
 	void Update ()
 	{
 		if (ataquePedra) {
-			Debug.Log (animatorClipInfo [0].clip.name);
-			//secondsAnimation += animatorClipInfo [0].clip.length;
+			verificarSpriteAtualDoHod ();		
+		}
+		if (Time.timeSinceLevelLoad - tempoUltimoAtaquePedra > duracaoAnimacaoLancarPedra) {
+			tempoUltimoAtaquePedra = 0.0f;
+			ataquePedra = false;
+			animator.SetBool ("ataquePedra", ataquePedra);
 		}
 		if (recebendoDano == true && (Time.timeSinceLevelLoad - tempoUltimoDano > duracaoAnimacaoDesaparecer)) {
-			alterarPosicaoHod ();
-			recebendoDano = false;
-			animator.SetBool ("recebendoDano", recebendoDano);
-			tempoUltimoDano = 0.0f;
-		} else {
-			// Verifica a chance de atacar.
-			if (Random.Range (1, 600) == 1) {
-				Debug.Log ("pode atacar");
-				// Verifica qual tipo de ataque, 1 para lançar pedra e 2 para atrair.
-				if (Random.Range (1, 3) == 1) {
-					ataquePedra = true;
-					animator.SetBool ("ataquePedra", ataquePedra);
-					animatorClipInfo = animator.GetCurrentAnimatorClipInfo (0);
-					//	tempoUltimoAtaquePedra = 
-				} else {
-				
-				}
+			if (!ataquePedra) {
+				alterarPosicaoHod ();
+				recebendoDano = false;
+				animator.SetBool ("recebendoDano", recebendoDano);
+				tempoUltimoDano = 0.0f;
+			}
+		}
+		// Verifica a chance de atacar.
+		if (Random.Range (1, 100) < 3) {
+			// Verifica qual tipo de ataque, 1 para lançar pedra e 2 para atrair.
+			if (!ataquePedra) {
+				tempoUltimoAtaquePedra = Time.timeSinceLevelLoad;
+				ataquePedra = true;
+				animator.SetBool ("ataquePedra", ataquePedra);
 			}
 		}
 	}
@@ -98,11 +109,37 @@ public class HodMecanica : MonoBehaviour
 	public void verificarNumeroMaximoDeDano ()
 	{
 		if (quantidadeDano == 15) {
-			Debug.Log ("game win");
-			// Chamar última cutscene.
-			// Próxima fase é o menu principal
-			//ControllerScene.getInstance().runCutscene(
+			SceneManager.LoadScene ("WinGameScene");
 		}
+	}
+
+	public void instanciarPedra ()
+	{
+		if (Time.timeSinceLevelLoad - tempoUltimaInstanciaPedra > duracaoNovaInstanciaPedra) {
+			GameObject pedra = Instantiate (pedraPrefab) as GameObject;
+			Vector3 posicaoAtualHod = this.gameObject.transform.position;
+			Vector3 posicaoPedra = new Vector3 (posicaoAtualHod.x, 1.2f, posicaoAtualHod.z);
+			Sprite spriteDaPedra = aleatorizarSpriteDaPedra ();
+			pedra.gameObject.GetComponent<PedraProjetil> ().setPropriedades (posicaoPedra, this.direcaoHorizontal, spriteDaPedra);
+			tempoUltimaInstanciaPedra = Time.timeSinceLevelLoad;
+		}
+	}
+
+	public Sprite aleatorizarSpriteDaPedra ()
+	{
+		int indexSprite = Random.Range (0, 3);
+		return spritesPedra [indexSprite];
+	}
+
+	public void verificarSpriteAtualDoHod ()
+	{
+		spriteHod = this.gameObject.GetComponentInChildren<SpriteRenderer> ().sprite;
+		string sprite = spriteHod.ToString ();
+
+		if (sprite.Contains ("continuo")) {
+			instanciarPedra ();
+		}
+
 	}
 
 }

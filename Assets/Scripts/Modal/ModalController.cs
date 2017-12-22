@@ -14,30 +14,68 @@ public class ModalController : MonoBehaviour
 	void Start ()
 	{		
 		modalPanel = ModalPanel.Instance ();
-		editarComportamentoAlltron (fase);
+		editarComportamentoAlltron ();
 		modalPanel.Choice ();
 		Time.timeScale = 0.0f;
+		esconderGameObjectFase3 ();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		if (Input.GetKeyUp (KeyCode.H)) {
-			editarComportamentoAlltron (fase);
+			editarComportamentoAlltron ();
 			modalPanel.modalPanelObject.SetActive (true);
 			Time.timeScale = 0.0f;
+			esconderGameObjectFase3 ();
 		}
 	}
 
-	public void editarComportamentoAlltron (int fase)
+	public void editarComportamentoAlltron ()
 	{
-		switch (fase) {
-		case 3:
-			
-			break;
-		default:
+		if (this.fase == 1) {
 			alltron.GetComponent<MovimentacaoAlltron> ().setEscondido (true);	
-			break;
+		}
+	}
+
+	public void esconderGameObjectFase3 ()
+	{
+		GameObject[] minions = GameObject.FindGameObjectsWithTag ("Minion");
+		GameObject darkon = GameObject.FindGameObjectWithTag ("Inimigo");
+
+		if (minions != null) {
+			for (int i = 0; i < minions.Length; i++) {
+				if (this.fase == 1) {
+					minions [i].GetComponent<MinionStealthScript> ().setEstadoAtivo (false);
+				}
+				if (this.fase == 3) {
+					minions [i].GetComponent<Minion> ().setEstadoAtivo (false);
+				}
+
+			}
+		}
+		if (darkon != null) {
+			darkon.GetComponent<Darkon> ().setEstadoAtivo (false);
+		}
+	}
+
+	public void mostrarGameObjectFase3 ()
+	{
+		GameObject[] minions = GameObject.FindGameObjectsWithTag ("Minion");
+		GameObject darkon = GameObject.FindGameObjectWithTag ("Inimigo");
+	
+		if (minions != null) {
+			for (int i = 0; i < minions.Length; i++) {
+				if (this.fase == 1) {
+					minions [i].GetComponent<MinionStealthScript> ().setEstadoAtivo (true);
+				}
+				if (this.fase == 3) {
+					minions [i].GetComponent<Minion> ().setEstadoAtivo (true);
+				}
+			}
+		}
+		if (darkon != null) {
+			darkon.GetComponent<Darkon> ().setEstadoAtivo (true);
 		}
 	}
 }

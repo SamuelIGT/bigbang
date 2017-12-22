@@ -66,7 +66,7 @@ public class MovimentacaoAlltron : MonoBehaviour
 	{
 		
 		if (col.gameObject.tag == "Vortex") {
-			if (Input.GetKeyUp (KeyCode.Space)) {
+			if (Input.GetKeyDown (KeyCode.Space)) {
 				
 				if (col.gameObject.GetComponent<Vortex> ().getId () == 6) {
 					// Executar a Cutscene 1.

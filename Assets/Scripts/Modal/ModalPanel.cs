@@ -4,7 +4,8 @@ using UnityEngine.Events;
 using System.Collections;
 
 //  This script will be updated in Part 2 of this 2 part series.
-public class ModalPanel : MonoBehaviour {
+public class ModalPanel : MonoBehaviour
+{
 
 	public Image iconImage;
 	public Button yesButton;
@@ -15,12 +16,15 @@ public class ModalPanel : MonoBehaviour {
 
 	private static ModalPanel modalPanel;
 
-	void Start(){
+	void Start ()
+	{
 		modalController = GameObject.FindGameObjectWithTag ("ManagerModal").GetComponent<ModalController> (); 
 	}
-	public static ModalPanel Instance () {
+
+	public static ModalPanel Instance ()
+	{
 		if (!modalPanel) {
-			modalPanel = FindObjectOfType(typeof (ModalPanel)) as ModalPanel;
+			modalPanel = FindObjectOfType (typeof(ModalPanel)) as ModalPanel;
 			if (!modalPanel)
 				Debug.LogError ("There needs to be one active ModalPanel script on a GameObject in your scene.");
 		}
@@ -29,18 +33,19 @@ public class ModalPanel : MonoBehaviour {
 	}
 
 	// Yes/No/Cancel: A string, a Yes event, a No event and Cancel event
-	public void Choice () {
+	public void Choice ()
+	{
 		modalPanelObject.SetActive (true);
 
-		yesButton.onClick.RemoveAllListeners();
+		yesButton.onClick.RemoveAllListeners ();
 		//yesButton.onClick.AddListener (yesEvent);
 		yesButton.onClick.AddListener (ClosePanel);
 
-		noButton.onClick.RemoveAllListeners();
+		noButton.onClick.RemoveAllListeners ();
 		//noButton.onClick.AddListener (noEvent);
 		noButton.onClick.AddListener (ClosePanel);
 
-		cancelButton.onClick.RemoveAllListeners();
+		cancelButton.onClick.RemoveAllListeners ();
 		//cancelButton.onClick.AddListener (cancelEvent);
 		cancelButton.onClick.AddListener (ClosePanel);
 
@@ -49,12 +54,13 @@ public class ModalPanel : MonoBehaviour {
 		cancelButton.gameObject.SetActive (false);
 	}
 
-	public void ClosePanel () {
+	public void ClosePanel ()
+	{
 		modalPanelObject.SetActive (false);
 		Time.timeScale = 1.0f;
 		if (modalController.fase == 1) {
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<MovimentacaoAlltron> ().setEscondido (false);
 		}
-
+		modalController.mostrarGameObjectFase3 ();
 	}
 }

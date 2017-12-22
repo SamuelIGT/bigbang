@@ -9,6 +9,7 @@ public class MinionStealthScript : MonoBehaviour
 	public bool direcao;
 	public float limiteDireita;
 	public float limiteEsquerda;
+	private bool estadoAtivo = true;
 
 	// Use this for initialization
 	void Start ()
@@ -20,17 +21,19 @@ public class MinionStealthScript : MonoBehaviour
 	void Update ()
 	{
 
-		if (direcao) {
-			transform.eulerAngles = new Vector2 (0, 0);
-		} else {
-			transform.eulerAngles = new Vector2 (0, 180);
-		}
-		transform.Translate (Vector2.right * velocidade * Time.deltaTime);
+		if (estadoAtivo) {
+			if (direcao) {
+				transform.eulerAngles = new Vector2 (0, 0);
+			} else {
+				transform.eulerAngles = new Vector2 (0, 180);
+			}
+			transform.Translate (Vector2.right * velocidade * Time.deltaTime);
 
-		Vector3 posicaoAtual = transform.position;
+			Vector3 posicaoAtual = transform.position;
 
-		if (posicaoAtual.x >= limiteDireita || posicaoAtual.x <= limiteEsquerda) {
-			direcao = !direcao;
+			if (posicaoAtual.x >= limiteDireita || posicaoAtual.x <= limiteEsquerda) {
+				direcao = !direcao;
+			}
 		}
 	}
 
@@ -39,5 +42,10 @@ public class MinionStealthScript : MonoBehaviour
 		if (colisor.gameObject.tag == "Player") {
 			ControllerScene.getInstance ().runEndGameScene ();
 		}
+	}
+
+	public void setEstadoAtivo (bool estado)
+	{
+		this.estadoAtivo = estado;
 	}
 }

@@ -21,5 +21,11 @@ public class CameraFase3 : MonoBehaviour
 			Vector3 novaPosicao = new Vector3 (player.position.x, player.position.y + deslocamento, transform.position.z);
 			transform.position = Vector3.Lerp (transform.position, novaPosicao, Time.time);
 		}
+		if (gameObject.transform.position.x < -39.0f) {
+			gameObject.transform.position = new Vector3 (-39.0f, gameObject.transform.position.y, gameObject.transform.position.z);
+		}
+		if (gameObject.transform.position.x > 39.0f) {
+			gameObject.transform.position = new Vector3 (39.0f, gameObject.transform.position.y, gameObject.transform.position.z);
+		}
 	}
 }
